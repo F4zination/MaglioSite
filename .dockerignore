@@ -1,0 +1,17 @@
+# Exclude these files from Docker build context
+.git
+.gitignore
+node_modules
+npm-debug.log
+.env
+.env.*
+!.env.example
+README.md
+.vscode
+.idea
+*.md
+videos/raw
+.svelte-kit
+build
+dist
+.DS_Store
