@@ -1,0 +1,18 @@
+# Docker Compose configuration for development and production
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    restart: unless-stopped
+    volumes:
+      # Mount static files for easier updates
+      - ./static:/app/static:ro
+      - ./videos/hls:/app/videos/hls:ro
