@@ -17,6 +17,7 @@ import { spawn } from 'child_process';
 import { readdir, mkdir, stat } from 'fs/promises';
 import { join, basename, extname } from 'path';
 import { existsSync } from 'fs';
+import ffmpegPath from 'ffmpeg-static';
 
 const RAW_VIDEO_DIR = './videos/raw';
 const HLS_OUTPUT_DIR = './videos/hls';
@@ -30,8 +31,12 @@ const HLS_PLAYLIST_TYPE = 'vod'; // Video on demand
  */
 function execFFmpeg(args) {
 	return new Promise((resolve, reject) => {
-		const ffmpeg = spawn('ffmpeg', args);
-		
+		if (!ffmpegPath) {
+			reject(new Error('FFmpeg binary not found. Ensure ffmpeg-static is installed correctly.'));
+			return;
+		}
+		const ffmpeg = spawn(ffmpegPath, args);
+
 		let stdout = '';
 		let stderr = '';
 
@@ -116,7 +121,7 @@ async function main() {
 	// Check if FFmpeg is installed
 	console.log('Checking for FFmpeg...');
 	const hasFFmpeg = await checkFFmpeg();
-	
+
 	if (!hasFFmpeg) {
 		console.error('✗ FFmpeg is not installed or not in PATH');
 		console.error('Please install FFmpeg: https://ffmpeg.org/download.html');
@@ -138,7 +143,7 @@ async function main() {
 
 	// Read all files in raw directory
 	const files = await readdir(RAW_VIDEO_DIR);
-	const mp4Files = files.filter(file => 
+	const mp4Files = files.filter(file =>
 		extname(file).toLowerCase() === '.mp4'
 	);
 
@@ -159,7 +164,7 @@ async function main() {
 	for (const file of mp4Files) {
 		const inputPath = join(RAW_VIDEO_DIR, file);
 		const success = await convertToHLS(inputPath, HLS_OUTPUT_DIR);
-		
+
 		if (success) {
 			successful++;
 		} else {
