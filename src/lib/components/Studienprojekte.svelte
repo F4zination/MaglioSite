@@ -1,5 +1,7 @@
 <script lang="ts">
 	let expanded = $state(true);
+	let activeVideo = $state<string | null>(null);
+	let activeTitle = $state<string>('');
 
 	interface Project {
 		number: string;
@@ -48,9 +50,54 @@
 	function toggleExpanded() {
 		expanded = !expanded;
 	}
+
+	function openVideo(videoSlug: string, title: string) {
+		activeVideo = videoSlug;
+		activeTitle = title;
+	}
+
+	function closeVideo() {
+		activeVideo = null;
+		activeTitle = '';
+	}
 </script>
 
 <section class="w-full">
+	<!-- Video Modal -->
+	{#if activeVideo}
+		<div 
+			class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+			onclick={closeVideo}
+			onkeydown={(e) => e.key === 'Escape' && closeVideo()}
+			role="dialog"
+			tabindex="-1"
+		>
+			<div 
+				class="relative w-full max-w-4xl"
+				onclick={(e) => e.stopPropagation()}
+				role="document"
+			>
+				<button 
+					onclick={closeVideo}
+					class="absolute -top-12 right-0 text-white text-3xl hover:opacity-70 transition-opacity"
+					aria-label="Schließen"
+				>
+					✕
+				</button>
+				<h3 class="text-white text-xl font-mono mb-4">{activeTitle}</h3>
+				<video
+					src="/videos/hls/{activeVideo}/playlist.m3u8"
+					class="w-full rounded-lg"
+					controls
+					autoplay
+				>
+					<track kind="captions" />
+					Your browser does not support the video tag.
+				</video>
+			</div>
+		</div>
+	{/if}
+
 	<!-- Header -->
 	<button 
 		onclick={toggleExpanded}
@@ -68,10 +115,36 @@
 	<!-- Content -->
 	{#if expanded}
 		<div class="divide-y divide-gray-300">
-			{#each projects as project}
-				<article class="grid grid-cols-1 lg:grid-cols-2 min-h-[400px]">
-					<!-- Left: Text Content -->
-					<div class="bg-white p-8 flex flex-col justify-between">
+			{#each projects as project, index}
+				<article class="grid grid-cols-1 md:grid-cols-2 min-h-[400px]">
+					{#if index % 2 === 1}
+						<!-- Left: Thumbnail (even items) -->
+						<button 
+							class="bg-[#c8e6c9] flex items-center justify-center p-8 border-r border-gray-300 cursor-pointer group"
+							onclick={() => project.videoSlug && openVideo(project.videoSlug, project.title)}
+							disabled={!project.videoSlug}
+						>
+							<div class="relative">
+								<img 
+									src={project.thumbnail} 
+									alt="{project.title} Thumbnail"
+									class="max-w-full max-h-[350px] object-contain drop-shadow-2xl transition-transform group-hover:scale-105"
+								/>
+								{#if project.videoSlug}
+									<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+										<div class="bg-black/70 rounded-full p-4">
+											<svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+												<path d="M8 5v14l11-7z"/>
+											</svg>
+										</div>
+									</div>
+								{/if}
+							</div>
+						</button>
+					{/if}
+
+					<!-- Text Content -->
+					<div class="bg-white p-8 flex flex-col justify-between {index % 2 === 0 ? 'border-r border-gray-300' : ''}">
 						<div>
 							<h3 class="text-lg font-mono mb-8 underline underline-offset-4">
 								{project.number} {project.title}
@@ -84,12 +157,12 @@
 							</div>
 
 							{#if project.videoSlug}
-								<a 
-									href="/videos/hls/{project.videoSlug}/playlist.m3u8"
-									class="inline-block mt-8 border border-black px-4 py-2 text-sm font-mono hover:bg-black hover:text-white transition-colors"
+								<button 
+									onclick={() => openVideo(project.videoSlug!, project.title)}
+									class="inline-block mt-8 border border-black px-4 py-2 text-sm font-mono hover:bg-black hover:text-white transition-colors cursor-pointer"
 								>
 									&gt; Casefilm ansehen
-								</a>
+								</button>
 							{/if}
 						</div>
 
@@ -102,14 +175,31 @@
 						</div>
 					</div>
 
-					<!-- Right: Thumbnail -->
-					<div class="bg-[#c8e6c9] flex items-center justify-center p-8">
-						<img 
-							src={project.thumbnail} 
-							alt="{project.title} Thumbnail"
-							class="max-w-full max-h-[350px] object-contain drop-shadow-2xl"
-						/>
-					</div>
+					{#if index % 2 === 0}
+						<!-- Right: Thumbnail (odd items) -->
+						<button 
+							class="bg-[#c8e6c9] flex items-center justify-center p-8 cursor-pointer group"
+							onclick={() => project.videoSlug && openVideo(project.videoSlug, project.title)}
+							disabled={!project.videoSlug}
+						>
+							<div class="relative">
+								<img 
+									src={project.thumbnail} 
+									alt="{project.title} Thumbnail"
+									class="max-w-full max-h-[350px] object-contain drop-shadow-2xl transition-transform group-hover:scale-105"
+								/>
+								{#if project.videoSlug}
+									<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+										<div class="bg-black/70 rounded-full p-4">
+											<svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+												<path d="M8 5v14l11-7z"/>
+											</svg>
+										</div>
+									</div>
+								{/if}
+							</div>
+						</button>
+					{/if}
 				</article>
 			{/each}
 		</div>

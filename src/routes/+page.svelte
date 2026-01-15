@@ -1,18 +1,32 @@
 <script lang="ts">
+	import Header from '$lib/components/Header.svelte';
+	import WerBinIch from '$lib/components/WerBinIch.svelte';
 	import Studienprojekte from '$lib/components/Studienprojekte.svelte';
+	import EigeneProjekte from '$lib/components/EigeneProjekte.svelte';
+	import BeruflicheErfahrungen from '$lib/components/BeruflicheErfahrungen.svelte';
+	import Ausbildung from '$lib/components/Ausbildung.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 </script>
 
 <div class="min-h-screen bg-white">
-	<!-- Hero Section -->
-	<header class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-center py-16 px-4">
-		<h1 class="text-5xl font-bold text-white mb-4">
-			Welcome to MaglioSite
-		</h1>
-		<p class="text-xl text-slate-300">
-			High-Performance Portfolio Website
-		</p>
-	</header>
+	<!-- Header -->
+	<Header />
+
+	<!-- Wer bin ich? Section -->
+	<WerBinIch />
 
 	<!-- Studienprojekte Section -->
 	<Studienprojekte />
+
+	<!-- Eigene Projekte Section -->
+	<EigeneProjekte />
+
+	<!-- Berufliche Erfahrungen Section -->
+	<BeruflicheErfahrungen />
+
+	<!-- Ausbildung Section -->
+	<Ausbildung />
+
+	<!-- Footer -->
+	<Footer />
 </div>
