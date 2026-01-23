@@ -2,7 +2,7 @@
 	const currentYear = new Date().getFullYear();
 </script>
 
-<footer id="contact" class="w-full bg-black text-white py-8 px-6 lg:px-12">
+<footer id="contact" class="w-full bg-black text-white py-8 px-6 lg:px-12 border-x border-electric-blue border-t border-electric-blue">
 	<!-- Top Row -->
 	<div class="flex items-start justify-between mb-16">
 		<p class="font-mono text-sm tracking-wide">ELISA MAGLIO</p>
@@ -14,7 +14,7 @@
 	<div class="flex items-end justify-between">
 		<a 
 			href="mailto:ELISA.MAGLIO@WEB.DE" 
-			class="font-mono text-sm tracking-wide underline underline-offset-4 hover:opacity-70 transition-opacity"
+			class="font-mono text-sm tracking-wide hover:opacity-70 transition-opacity"
 		>
 			ELISA.MAGLIO@WEB.DE
 		</a>
@@ -22,7 +22,7 @@
 			href="https://linkedin.com" 
 			target="_blank" 
 			rel="noopener noreferrer"
-			class="font-mono text-sm tracking-wide underline underline-offset-4 hover:opacity-70 transition-opacity"
+			class="font-mono text-sm tracking-wide hover:opacity-70 transition-opacity"
 		>
 			LINKED IN
 		</a>

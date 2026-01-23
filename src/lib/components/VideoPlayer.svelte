@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount } from "svelte";
 
 	interface VideoPlayerProps {
 		videoId: string;
@@ -7,7 +7,7 @@
 		autoplay?: boolean;
 	}
 
-	let { videoId, title = '', autoplay = false }: VideoPlayerProps = $props();
+	let { videoId, title = "", autoplay = false }: VideoPlayerProps = $props();
 
 	let videoElement: HTMLVideoElement;
 	let error: string | null = $state(null);
@@ -15,18 +15,19 @@
 
 	onMount(() => {
 		// Check if HLS.js is supported
-		if (typeof window !== 'undefined') {
+		if (typeof window !== "undefined") {
 			const videoSrc = `/videos/hls/${videoId}/playlist.m3u8`;
 
 			// For browsers that support HLS natively (Safari)
-			if (videoElement.canPlayType('application/vnd.apple.mpegurl')) {
+			if (videoElement.canPlayType("application/vnd.apple.mpegurl")) {
 				videoElement.src = videoSrc;
 				isLoading = false;
 			}
 			// For other browsers, you would use HLS.js (to be installed separately)
 			// For now, we'll just show the native player
 			else {
-				error = 'HLS playback not supported. Install hls.js for cross-browser support.';
+				error =
+					"HLS playback not supported. Install hls.js for cross-browser support.";
 				isLoading = false;
 			}
 		}
@@ -57,7 +58,9 @@
 		{/if}
 
 		{#if isLoading}
-			<div class="absolute inset-0 flex items-center justify-center bg-black/50">
+			<div
+				class="absolute inset-0 flex items-center justify-center bg-black/50"
+			>
 				<div class="text-white">Loading video...</div>
 			</div>
 		{/if}

@@ -34,13 +34,13 @@
 	}
 </script>
 
-<section class="w-full">
+<section class="w-full border-x border-electric-blue">
 	<!-- Header -->
 	<button 
 		onclick={toggleExpanded}
-		class="w-full bg-black text-white py-4 px-6 flex items-center justify-center gap-3 cursor-pointer hover:bg-gray-900 transition-colors"
+		class="w-full bg-black text-white py-4 px-6 flex items-center justify-center gap-3 cursor-pointer hover:bg-gray-900 transition-colors border-b border-electric-blue"
 	>
-		<h2 class="text-2xl font-bold tracking-[0.3em] uppercase">Eigene Projekte</h2>
+		<h2 class="text-2xl font-bold tracking-[0.3em] uppercase">EIGENE PROJEKTE</h2>
 		<span 
 			class="text-2xl transition-transform duration-300"
 			class:rotate-180={!expanded}
@@ -51,12 +51,12 @@
 
 	<!-- Content -->
 	{#if expanded}
-		<div class="divide-y divide-gray-300">
+		<div class="border-b border-electric-blue">
 			{#each projects as project, index}
-				<article class="grid grid-cols-1 md:grid-cols-2 min-h-[400px]">
+				<article class="grid grid-cols-1 md:grid-cols-2 min-h-[400px] border-b border-electric-blue last:border-b-0">
 					{#if index % 2 === 1}
 						<!-- Left: Thumbnail (even items) -->
-						<div class="bg-[#c8e6c9] flex items-center justify-center p-8 border-r border-gray-300">
+						<div class="bg-[#c8e6c9] flex items-center justify-center p-8 border-r border-electric-blue">
 							<img 
 								src={project.thumbnail} 
 								alt="{project.title} Thumbnail"
@@ -66,30 +66,30 @@
 					{/if}
 
 					<!-- Text Content -->
-					<div class="bg-white p-8 flex flex-col justify-between {index % 2 === 0 ? 'border-r border-gray-300' : ''}">
+					<div class="bg-black p-8 flex flex-col justify-between text-white {index % 2 === 0 ? 'border-r border-electric-blue' : ''}">
 						<div>
-							<h3 class="text-lg font-mono mb-8 underline underline-offset-4">
+							<h3 class="text-lg font-mono mb-8 text-white">
 								{project.number} {project.title}
 							</h3>
 							
-							<div class="space-y-4 text-sm leading-relaxed font-mono max-w-md">
+							<div class="space-y-4 text-sm leading-relaxed font-mono max-w-md text-white">
 								{#each project.description.split('\n\n') as paragraph}
 									<p>{paragraph}</p>
 								{/each}
 							</div>
 						</div>
 
-						<div class="mt-8 pt-4 border-t border-gray-300">
-							<p class="text-sm font-mono underline underline-offset-2">
+						<div class="mt-8 pt-4 border-t border-electric-blue">
+							<p class="text-sm font-mono text-white">
 								{project.tags.join(', ')}
 							</p>
-							<p class="text-sm font-mono">{project.date}</p>
+							<p class="text-sm font-mono text-white">{project.date}</p>
 						</div>
 					</div>
 
 					{#if index % 2 === 0}
 						<!-- Right: Thumbnail (odd items) -->
-						<div class="bg-[#c8e6c9] flex items-center justify-center p-8">
+						<div class="bg-[#c8e6c9] flex items-center justify-center p-8 border-l border-electric-blue">
 							<img 
 								src={project.thumbnail} 
 								alt="{project.title} Thumbnail"
