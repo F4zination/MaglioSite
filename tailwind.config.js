@@ -4,7 +4,7 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				'electric-blue': '#00BFFF',
+				'electric-blue': '#9D4EDD',
 			}
 		}
 	},

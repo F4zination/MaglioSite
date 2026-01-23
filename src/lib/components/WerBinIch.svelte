@@ -26,87 +26,73 @@
     <!-- Content -->
     {#if expanded}
         <div class="bg-black border-b border-electric-blue">
-            <div class="grid grid-cols-1 md:grid-cols-2">
-                <div
-                    class="border-r border-electric-blue p-6"
-                >
-                    <div class="border-b border-electric-blue pb-6 mb-6">
-                        <p
-                            class="font-mono text-sm text-white"
-                        >
-                            Hey :)
-                        </p>
+            <div class="grid grid-cols-[1fr_1fr]">
+                <div class="border-r border-electric-blue">
+                    <div class="border-b border-electric-blue p-6">
+                        <p class="font-mono text-sm text-white">Hey :)</p>
                     </div>
 
-                    <div
-                        class="border-b border-electric-blue pb-6 mb-6 min-h-[200px] flex flex-col justify-center"
-                    >
+                    <div class="border-b border-electric-blue p-6">
                         <p class="font-mono text-sm leading-relaxed text-white">
                             Ich bin Elisa Maglio, bin 23 Jahre alt und<br />
                             studiere derzeit Mediendesign an der DHBW<br />
                             in Ravensburg.
                         </p>
-                        <p class="font-mono text-sm leading-relaxed mt-4 text-white">
+                        <p
+                            class="font-mono text-sm leading-relaxed mt-4 text-white"
+                        >
                             Willkommen auf meinem Portfolio!
                         </p>
                     </div>
 
-                    <div class="border-b border-electric-blue pb-6 mb-6">
-                        <p
-                            class="font-mono text-sm text-white"
-                        >
+                    <div class="border-b border-electric-blue p-6">
+                        <p class="font-mono text-sm text-white">
                             Volleyball spielen
                         </p>
                         <p
-                            class="font-mono text-sm text-white"
+                            class="font-mono text-sm text-white underline decoration-electric-blue"
                         >
                             Zeichnen
                         </p>
                         <p
-                            class="font-mono text-sm text-white"
+                            class="font-mono text-sm text-white underline decoration-electric-blue"
                         >
                             Lesen
                         </p>
-                        <p
-                            class="font-mono text-sm text-white"
-                        >
+                        <p class="font-mono text-sm text-white">
                             Brettspiele spielen
                         </p>
                     </div>
 
-                    <div class="border-b border-electric-blue pb-6 mb-6">
+                    <div class="border-b border-electric-blue p-6">
+                        <p class="font-mono text-sm text-white">offen</p>
                         <p
-                            class="font-mono text-sm text-white"
+                            class="font-mono text-sm text-white underline decoration-electric-blue"
                         >
-                            offen
+                            etwas_stur
                         </p>
                         <p
-                            class="font-mono text-sm text-white"
-                        >
-                            etwas stur
-                        </p>
-                        <p
-                            class="font-mono text-sm text-white"
+                            class="font-mono text-sm text-white underline decoration-electric-blue"
                         >
                             ehrgeizig
                         </p>
                         <p
-                            class="font-mono text-sm text-white"
+                            class="font-mono text-sm text-white underline decoration-electric-blue"
                         >
                             interessiert
                         </p>
                         <p
-                            class="font-mono text-sm text-white"
+                            class="font-mono text-sm text-white underline decoration-electric-blue"
                         >
                             hilfsbereit
                         </p>
                     </div>
 
-                    <div class="pb-6">
+                    <div class="p-6">
                         <p class="font-mono text-sm text-white">
                             email: <a
                                 href="mailto:elisa.maglio@web.de"
-                                class="text-white hover:opacity-70"
+                                class="text-white underline decoration-electric-blue hover:opacity-70"
                                 >elisa.maglio@web.de</a
                             >
                         </p>
@@ -115,7 +101,7 @@
                                 href="https://linkedin.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="text-white hover:opacity-70"
+                                class="text-white underline decoration-electric-blue hover:opacity-70"
                                 >Elisa Maglio</a
                             >
                         </p>
@@ -123,12 +109,13 @@
                 </div>
 
                 <div
-                    class="flex items-center justify-center bg-white min-h-[500px] border-l border-electric-blue"
+                    class="flex items-end justify-center bg-gradient-to-b from-amber-100 to-amber-200 min-h-[500px]"
                 >
-                    <div class="text-center text-gray-400 font-mono">
-                        <p class="text-8xl mb-4">👤</p>
-                        <p>Profilbild</p>
-                    </div>
+                    <img
+                        src="/profile-avatar.png"
+                        alt="Elisa Maglio - 3D Avatar"
+                        class="max-h-[480px] object-contain"
+                    />
                 </div>
             </div>
         </div>

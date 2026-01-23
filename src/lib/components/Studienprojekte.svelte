@@ -121,21 +121,23 @@
 	{#if expanded}
 		<div class="border-x border-electric-blue">
 			{#each projects as project, index}
-				<article class="grid grid-cols-1 md:grid-cols-2 min-h-[400px] border-b border-electric-blue last:border-b-0">
+				<article
+					class="grid grid-cols-[1fr_1fr] min-h-[400px] border-b border-electric-blue last:border-b-0"
+				>
 					{#if index % 2 === 1}
 						<!-- Left: Thumbnail (even items) -->
 						<button
-							class="bg-[#c8e6c9] flex items-center justify-center p-8 border-r border-electric-blue cursor-pointer group"
+							class="bg-[#c8e6c9] flex items-center justify-center border-r border-electric-blue cursor-pointer group overflow-hidden"
 							onclick={() =>
 								project.videoSlug &&
 								openVideo(project.videoSlug, project.title)}
 							disabled={!project.videoSlug}
 						>
-							<div class="relative">
+							<div class="relative w-full h-full">
 								<img
 									src={project.thumbnail}
 									alt="{project.title} Thumbnail"
-									class="max-w-full max-h-[350px] object-contain drop-shadow-2xl transition-transform group-hover:scale-105"
+									class="w-full h-full object-cover transition-transform group-hover:scale-105"
 								/>
 								{#if project.videoSlug}
 									<div
@@ -167,10 +169,9 @@
 							: ''}"
 					>
 						<div>
-							<h3
-								class="text-lg font-mono mb-8 text-white"
-							>
-								{project.number} {project.title}
+							<h3 class="text-lg font-mono mb-8 text-white">
+								{project.number}
+								{project.title}
 							</h3>
 
 							<div
@@ -196,30 +197,32 @@
 						</div>
 
 						<div class="mt-8 pt-4 border-t border-electric-blue">
-							<p
-								class="text-sm font-mono text-white"
-							>
+							<p class="text-sm font-mono text-white">
 								{project.tags.join(", ")}
 							</p>
-							<p class="text-sm font-mono text-white">{project.semester}</p>
-							<p class="text-sm font-mono text-white">{project.date}</p>
+							<p class="text-sm font-mono text-white">
+								{project.semester}
+							</p>
+							<p class="text-sm font-mono text-white">
+								{project.date}
+							</p>
 						</div>
 					</div>
 
 					{#if index % 2 === 0}
 						<!-- Right: Thumbnail (odd items) -->
 						<button
-							class="bg-[#c8e6c9] flex items-center justify-center p-8 cursor-pointer group border-l border-electric-blue"
+							class="bg-[#c8e6c9] flex items-center justify-center cursor-pointer group overflow-hidden"
 							onclick={() =>
 								project.videoSlug &&
 								openVideo(project.videoSlug, project.title)}
 							disabled={!project.videoSlug}
 						>
-							<div class="relative">
+							<div class="relative w-full h-full">
 								<img
 									src={project.thumbnail}
 									alt="{project.title} Thumbnail"
-									class="max-w-full max-h-[350px] object-contain drop-shadow-2xl transition-transform group-hover:scale-105"
+									class="w-full h-full object-cover transition-transform group-hover:scale-105"
 								/>
 								{#if project.videoSlug}
 									<div
