@@ -1,5 +1,6 @@
 <script lang="ts">
 	import ExpandableSection from '$lib/components/ExpandableSection.svelte';
+	import VideoPlayer from '$lib/components/VideoPlayer.svelte';
 
 	let activeVideo = $state<string | null>(null);
 	let activeTitle = $state<string>("");
@@ -97,15 +98,7 @@
 					✕
 				</button>
 			</div>
-			<video
-				src="/videos/hls/{activeVideo}/playlist.m3u8"
-				class="w-full border border-zinc-700 bg-black"
-				controls
-				autoplay
-			>
-				<track kind="captions" />
-				Your browser does not support the video tag.
-			</video>
+			<VideoPlayer videoId={activeVideo} autoplay={true} class="border border-zinc-700" />
 		</div>
 	</div>
 {/if}

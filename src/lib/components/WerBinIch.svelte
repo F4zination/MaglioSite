@@ -19,23 +19,25 @@
 				</p>
 			</div>
 
-			<div class="border-b border-zinc-700 px-6 py-6">
-				<p class="font-mono text-xl">Volleyball spielen</p>
-				<p
-					class="font-mono text-xl underline decoration-zinc-500 underline-offset-4"
-				>
+			<div class="border-b  border-zinc-700 px-6 py-6">
+				<p class="font-mono text-xl underline decoration-zinc-500 underline-offset-4 ">
+					Volleyball spielen
+				</p>
+				<p class="font-mono text-xl underline decoration-zinc-500 underline-offset-4">
 					Zeichnen
 				</p>
-				<p
-					class="font-mono text-xl underline decoration-zinc-500 underline-offset-4"
-				>
+				<p class="font-mono text-xl underline decoration-zinc-500 underline-offset-4">
 					Lesen
 				</p>
-				<p class="font-mono text-xl">Brettspiele spielen</p>
+				<p class="font-mono text-xl underline decoration-zinc-500 underline-offset-4">
+					Brettspiele spielen
+				</p>
 			</div>
 
 			<div class="border-b border-zinc-700 px-6 py-6">
-				<p class="font-mono text-xl">offen</p>
+				<p class="font-mono text-xl underline decoration-zinc-500 underline-offset-4">
+					offen
+				</p>
 				<p
 					class="font-mono text-xl underline decoration-zinc-500 underline-offset-4"
 				>
