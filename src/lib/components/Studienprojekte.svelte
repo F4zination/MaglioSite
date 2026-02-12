@@ -1,5 +1,6 @@
 <script lang="ts">
-	let expanded = $state(true);
+	import ExpandableSection from '$lib/components/ExpandableSection.svelte';
+
 	let activeVideo = $state<string | null>(null);
 	let activeTitle = $state<string>("");
 
@@ -12,6 +13,7 @@
 		date: string;
 		thumbnail: string;
 		videoSlug?: string;
+		visualTone: string;
 	}
 
 	const projects: Project[] = [
@@ -25,6 +27,7 @@
 			date: "Dezember 2024",
 			thumbnail: "/Beehelpful.png",
 			videoSlug: "BeeHelpful",
+			visualTone: "bg-[#b6ccb2]",
 		},
 		{
 			number: "02",
@@ -36,6 +39,7 @@
 			date: "März 2025",
 			thumbnail: "/PocketNature.png",
 			videoSlug: "Pocket_Nature",
+			visualTone: "bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364]",
 		},
 		{
 			number: "03",
@@ -47,12 +51,9 @@
 			date: "Juni 2024",
 			thumbnail: "/Schachvideo.png",
 			videoSlug: "Filmintro_en passant",
+			visualTone: "bg-zinc-200",
 		},
 	];
-
-	function toggleExpanded() {
-		expanded = !expanded;
-	}
 
 	function openVideo(videoSlug: string, title: string) {
 		activeVideo = videoSlug;
@@ -63,195 +64,121 @@
 		activeVideo = null;
 		activeTitle = "";
 	}
+
+	function openProjectVideo(project: Project) {
+		if (!project.videoSlug) return;
+		openVideo(project.videoSlug, project.title);
+	}
 </script>
 
-<section class="w-full">
-	<!-- Video Modal -->
-	{#if activeVideo}
-		<div
-			class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+<!-- Video Modal -->
+{#if activeVideo}
+	<div class="fixed inset-0 z-50 p-4 md:p-8">
+		<button
+			type="button"
+			class="absolute inset-0 appearance-none bg-black/90"
 			onclick={closeVideo}
-			onkeydown={(e) => e.key === "Escape" && closeVideo()}
+			aria-label="Video schließen"
+		></button>
+		<div
+			class="relative mx-auto mt-8 w-full max-w-5xl"
 			role="dialog"
-			tabindex="-1"
+			aria-modal="true"
+			aria-label={activeTitle}
 		>
-			<div
-				class="relative w-full max-w-4xl"
-				onclick={(e) => e.stopPropagation()}
-				role="document"
-			>
+			<div class="mb-4 flex items-center justify-between gap-4">
+				<h3 class="text-xl font-mono text-white md:text-2xl">{activeTitle}</h3>
 				<button
+					type="button"
 					onclick={closeVideo}
-					class="absolute -top-12 right-0 text-white text-3xl hover:opacity-70 transition-opacity"
+					class="appearance-none text-3xl text-white transition-opacity hover:opacity-70"
 					aria-label="Schließen"
 				>
 					✕
 				</button>
-				<h3 class="text-white text-xl font-mono mb-4">{activeTitle}</h3>
-				<video
-					src="/videos/hls/{activeVideo}/playlist.m3u8"
-					class="w-full rounded-lg"
-					controls
-					autoplay
-				>
-					<track kind="captions" />
-					Your browser does not support the video tag.
-				</video>
 			</div>
+			<video
+				src="/videos/hls/{activeVideo}/playlist.m3u8"
+				class="w-full border border-zinc-700 bg-black"
+				controls
+				autoplay
+			>
+				<track kind="captions" />
+				Your browser does not support the video tag.
+			</video>
 		</div>
-	{/if}
+	</div>
+{/if}
 
-	<!-- Header -->
-	<button
-		onclick={toggleExpanded}
-		class="w-full bg-black text-white py-4 px-6 flex items-center justify-center gap-3 cursor-pointer hover:bg-gray-900 transition-colors border-b border-electric-blue border-x border-electric-blue"
-	>
-		<h2 class="text-2xl font-bold tracking-[0.3em] uppercase">
-			STUDIENPROJEKTE
-		</h2>
-		<span
-			class="text-2xl transition-transform duration-300"
-			class:rotate-180={!expanded}
+<ExpandableSection sectionId="work" title="STUDIENPROJEKTE">
+	{#each projects as project}
+		<article
+			class="grid min-h-[560px] grid-cols-2 border-b border-zinc-700 last:border-b-0"
 		>
-			^
-		</span>
-	</button>
-
-	<!-- Content -->
-	{#if expanded}
-		<div class="border-x border-electric-blue">
-			{#each projects as project, index}
-				<article
-					class="grid grid-cols-[1fr_1fr] min-h-[400px] border-b border-electric-blue last:border-b-0"
-				>
-					{#if index % 2 === 1}
-						<!-- Left: Thumbnail (even items) -->
-						<button
-							class="bg-[#c8e6c9] flex items-center justify-center border-r border-electric-blue cursor-pointer group overflow-hidden"
-							onclick={() =>
-								project.videoSlug &&
-								openVideo(project.videoSlug, project.title)}
-							disabled={!project.videoSlug}
-						>
-							<div class="relative w-full h-full">
-								<img
-									src={project.thumbnail}
-									alt="{project.title} Thumbnail"
-									class="w-full h-full object-cover transition-transform group-hover:scale-105"
-								/>
-								{#if project.videoSlug}
-									<div
-										class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-									>
-										<div
-											class="bg-black/70 rounded-full p-4"
-										>
-											<svg
-												class="w-12 h-12 text-white"
-												fill="currentColor"
-												viewBox="0 0 24 24"
-											>
-												<path d="M8 5v14l11-7z" />
-											</svg>
-										</div>
-									</div>
-								{/if}
-							</div>
-						</button>
-					{/if}
-
-					<!-- Text Content -->
-					<div
-						class="bg-black p-8 flex flex-col justify-between text-white {index %
-							2 ===
-						0
-							? 'border-r border-electric-blue'
-							: ''}"
+			<div class="flex flex-col border-r border-zinc-700 bg-zinc-100 text-zinc-900">
+				<div class="border-b border-zinc-700 px-6 py-4">
+					<h3
+						class="font-mono text-2xl underline decoration-1 underline-offset-4"
 					>
-						<div>
-							<h3 class="text-lg font-mono mb-8 text-white">
-								{project.number}
-								{project.title}
-							</h3>
-
-							<div
-								class="space-y-4 text-sm leading-relaxed font-mono max-w-md text-white"
-							>
-								{#each project.description.split("\n\n") as paragraph}
-									<p>{paragraph}</p>
-								{/each}
-							</div>
-
-							{#if project.videoSlug}
-								<button
-									onclick={() =>
-										openVideo(
-											project.videoSlug!,
-											project.title,
-										)}
-									class="inline-block mt-8 text-sm font-mono text-white hover:opacity-70 transition-opacity cursor-pointer"
-								>
-									&gt; Casefilm ansehen
-								</button>
-							{/if}
-						</div>
-
-						<div class="mt-8 pt-4 border-t border-electric-blue">
-							<p class="text-sm font-mono text-white">
-								{project.tags.join(", ")}
-							</p>
-							<p class="text-sm font-mono text-white">
-								{project.semester}
-							</p>
-							<p class="text-sm font-mono text-white">
-								{project.date}
-							</p>
-						</div>
+						{project.number} {project.title}
+					</h3>
+				</div>
+				<div class="flex flex-1 flex-col justify-between gap-6 p-6 md:p-8">
+					<div
+						class="max-h-[20rem] space-y-6 overflow-y-auto pr-2 font-mono text-2xl leading-[1.03] md:pr-4 md:text-4xl"
+					>
+						{#each project.description.split("\n\n") as paragraph}
+							<p>{paragraph}</p>
+						{/each}
 					</div>
 
-					{#if index % 2 === 0}
-						<!-- Right: Thumbnail (odd items) -->
+					{#if project.videoSlug}
 						<button
-							class="bg-[#c8e6c9] flex items-center justify-center cursor-pointer group overflow-hidden"
-							onclick={() =>
-								project.videoSlug &&
-								openVideo(project.videoSlug, project.title)}
-							disabled={!project.videoSlug}
+							type="button"
+							onclick={() => openProjectVideo(project)}
+							class="appearance-none inline-flex w-fit items-center border border-zinc-900 px-4 py-2 font-mono text-3xl transition-colors hover:bg-zinc-900 hover:text-zinc-100"
 						>
-							<div class="relative w-full h-full">
-								<img
-									src={project.thumbnail}
-									alt="{project.title} Thumbnail"
-									class="w-full h-full object-cover transition-transform group-hover:scale-105"
-								/>
-								{#if project.videoSlug}
-									<div
-										class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-									>
-										<div
-											class="bg-black/70 rounded-full p-4"
-										>
-											<svg
-												class="w-12 h-12 text-white"
-												fill="currentColor"
-												viewBox="0 0 24 24"
-											>
-												<path d="M8 5v14l11-7z" />
-											</svg>
-										</div>
-									</div>
-								{/if}
-							</div>
+							&gt; Casefilm ansehen
 						</button>
 					{/if}
-				</article>
-			{/each}
-		</div>
-	{/if}
-</section>
 
-<style>
-	.rotate-180 {
-		transform: rotate(180deg);
-	}
-</style>
+					<div class="border-t border-zinc-700 pt-4 font-mono text-2xl">
+						<p>{project.tags.join(", ")}</p>
+						<p>{project.semester}</p>
+						<p>{project.date}</p>
+					</div>
+				</div>
+			</div>
+
+			<button
+				type="button"
+				class="group relative flex items-center justify-center overflow-hidden appearance-none p-8 md:p-14 {project.visualTone}"
+				onclick={() => openProjectVideo(project)}
+				disabled={!project.videoSlug}
+			>
+				<div class="relative h-full w-full">
+					<img
+						src={project.thumbnail}
+						alt={`${project.title} Thumbnail`}
+						class="h-full max-h-[460px] w-full object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.45)] transition-transform duration-500 group-hover:scale-[1.02]"
+					/>
+					{#if project.videoSlug}
+						<div
+							class="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100"
+						>
+							<div class="rounded-full bg-black/75 p-4">
+								<svg
+									class="w-12 h-12 text-white"
+									fill="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path d="M8 5v14l11-7z" />
+								</svg>
+							</div>
+						</div>
+					{/if}
+				</div>
+			</button>
+		</article>
+	{/each}
+</ExpandableSection>

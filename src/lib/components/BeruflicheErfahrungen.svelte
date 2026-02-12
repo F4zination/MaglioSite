@@ -1,5 +1,5 @@
 <script lang="ts">
-	let expanded = $state(true);
+	import ExpandableSection from '$lib/components/ExpandableSection.svelte';
 
 	interface Experience {
 		number: string;
@@ -8,6 +8,7 @@
 		tags: string[];
 		date: string;
 		thumbnail: string;
+		visualTone: string;
 	}
 
 	const experiences: Experience[] = [
@@ -19,6 +20,7 @@
 			tags: ["Vektorgrafik", "Illustration"],
 			date: "2024",
 			thumbnail: "/Duka.png",
+			visualTone: "bg-zinc-200",
 		},
 		{
 			number: "02",
@@ -28,6 +30,7 @@
 			tags: ["Vektorgrafik", "Technische Illustration"],
 			date: "2024",
 			thumbnail: "/Detthlefs.png",
+			visualTone: "bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-700",
 		},
 		{
 			number: "03",
@@ -37,104 +40,44 @@
 			tags: ["Marketing", "Grafikdesign"],
 			date: "2023",
 			thumbnail: "/BMS.png",
+			visualTone: "bg-zinc-200",
 		},
 	];
-
-	function toggleExpanded() {
-		expanded = !expanded;
-	}
 </script>
 
-<section class="w-full border-x border-electric-blue">
-	<!-- Header -->
-	<button
-		onclick={toggleExpanded}
-		class="w-full bg-black text-white py-4 px-6 flex items-center justify-center gap-3 cursor-pointer hover:bg-gray-900 transition-colors border-b border-electric-blue"
-	>
-		<h2 class="text-2xl font-bold tracking-[0.3em] uppercase">
-			BERUFLICHE ERFAHRUNGEN
-		</h2>
-		<span
-			class="text-2xl transition-transform duration-300"
-			class:rotate-180={!expanded}
+<ExpandableSection title="BERUFLICHE ERFAHRUNGEN">
+	{#each experiences as experience}
+		<article
+			class="grid min-h-[520px] grid-cols-2 border-b border-zinc-700 last:border-b-0"
 		>
-			^
-		</span>
-	</button>
-
-	<!-- Content -->
-	{#if expanded}
-		<div class="border-b border-electric-blue">
-			{#each experiences as experience, index}
-				<article
-					class="grid grid-cols-[1fr_1fr] min-h-[400px] border-b border-electric-blue last:border-b-0"
-				>
-					{#if index % 2 === 1}
-						<!-- Left: Thumbnail (even items) -->
-						<div
-							class="bg-[#c8e6c9] flex items-center justify-center border-r border-electric-blue overflow-hidden"
-						>
-							<img
-								src={experience.thumbnail}
-								alt="{experience.title} Thumbnail"
-								class="w-full h-full object-cover"
-							/>
-						</div>
-					{/if}
-
-					<!-- Text Content -->
-					<div
-						class="bg-black p-8 flex flex-col justify-between text-white {index %
-							2 ===
-						0
-							? 'border-r border-electric-blue'
-							: ''}"
-					>
-						<div>
-							<h3 class="text-lg font-mono mb-8 text-white">
-								{experience.number}
-								{experience.title}
-							</h3>
-
-							<div
-								class="space-y-4 text-sm leading-relaxed font-mono max-w-md text-white"
-							>
-								{#each experience.description.split("\n\n") as paragraph}
-									<p>{paragraph}</p>
-								{/each}
-							</div>
-						</div>
-
-						<div class="mt-8 pt-4 border-t border-electric-blue">
-							<p class="text-sm font-mono text-white">
-								{experience.tags.join(", ")}
-							</p>
-							<p class="text-sm font-mono text-white">
-								{experience.date}
-							</p>
-						</div>
+			<div class="flex flex-col border-r border-zinc-700 bg-zinc-100 text-zinc-900">
+				<div class="border-b border-zinc-700 px-6 py-4">
+					<h3 class="font-mono text-2xl underline decoration-1 underline-offset-4">
+						{experience.number} {experience.title}
+					</h3>
+				</div>
+				<div class="flex flex-1 flex-col justify-between gap-6 p-6 md:p-8">
+					<div class="space-y-4 font-mono text-2xl leading-[1.06] md:text-3xl">
+						{#each experience.description.split("\n\n") as paragraph}
+							<p>{paragraph}</p>
+						{/each}
 					</div>
+					<div class="border-t border-zinc-700 pt-4 font-mono text-2xl">
+						<p>{experience.tags.join(", ")}</p>
+						<p>{experience.date}</p>
+					</div>
+				</div>
+			</div>
 
-					{#if index % 2 === 0}
-						<!-- Right: Thumbnail (odd items) -->
-						<div
-							class="bg-[#c8e6c9] flex items-center justify-center overflow-hidden"
-						>
-							<img
-								src={experience.thumbnail}
-								alt="{experience.title} Thumbnail"
-								class="w-full h-full object-cover"
-							/>
-						</div>
-					{/if}
-				</article>
-			{/each}
-		</div>
-	{/if}
-</section>
-
-<style>
-	.rotate-180 {
-		transform: rotate(180deg);
-	}
-</style>
+			<div
+				class="flex items-center justify-center overflow-hidden p-8 md:p-14 {experience.visualTone}"
+			>
+				<img
+					src={experience.thumbnail}
+					alt={`${experience.title} Thumbnail`}
+					class="h-full max-h-[430px] w-full object-contain drop-shadow-[0_24px_50px_rgba(0,0,0,0.35)]"
+				/>
+			</div>
+		</article>
+	{/each}
+</ExpandableSection>

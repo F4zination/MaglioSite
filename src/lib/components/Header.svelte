@@ -3,10 +3,10 @@
 </script>
 
 <header
-	class="sticky top-0 z-50 bg-black border-b border-electric-blue {className}"
+	class="sticky top-0 z-50 border-b border-zinc-700 bg-black {className}"
 >
 	<div
-		class="flex items-center justify-between px-6 py-4 border-x border-electric-blue"
+		class="flex items-center justify-between border-x border-zinc-700 px-6 py-4"
 	>
 		<!-- Logo -->
 		<a

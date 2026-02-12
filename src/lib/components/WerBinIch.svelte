@@ -1,123 +1,91 @@
 <script lang="ts">
-    let expanded = $state(true);
-
-    function toggleExpanded() {
-        expanded = !expanded;
-    }
+	import ExpandableSection from '$lib/components/ExpandableSection.svelte';
 </script>
 
-<section id="about" class="w-full border-x border-electric-blue">
-    <!-- Header -->
-    <button
-        onclick={toggleExpanded}
-        class="w-full bg-black text-white py-4 px-6 flex items-center justify-center gap-3 cursor-pointer hover:bg-gray-900 transition-colors border-b border-electric-blue"
-    >
-        <h2 class="text-2xl font-bold tracking-[0.3em] uppercase">
-            WER BIN ICH?
-        </h2>
-        <span
-            class="text-2xl transition-transform duration-300"
-            class:rotate-180={!expanded}
-        >
-            ^
-        </span>
-    </button>
+<ExpandableSection sectionId="about" title="WER BIN ICH?">
+	<div class="grid grid-cols-2">
+		<div class="border-r border-zinc-700 bg-zinc-100 text-zinc-900">
+			<div class="border-b border-zinc-700 px-6 py-4">
+				<p class="font-mono text-2xl">Hey :)</p>
+			</div>
 
-    <!-- Content -->
-    {#if expanded}
-        <div class="bg-black border-b border-electric-blue">
-            <div class="grid grid-cols-[1fr_1fr]">
-                <div class="border-r border-electric-blue">
-                    <div class="border-b border-electric-blue p-6">
-                        <p class="font-mono text-sm text-white">Hey :)</p>
-                    </div>
+			<div class="border-b border-zinc-700 px-6 py-6">
+				<p class="font-mono text-2xl leading-tight">
+					Ich bin Elisa Maglio, bin 23 Jahre alt und studiere derzeit
+					Mediendesign an der DHBW in Ravensburg.
+				</p>
+				<p class="mt-4 font-mono text-2xl leading-tight">
+					Willkommen auf meinem Portfolio!
+				</p>
+			</div>
 
-                    <div class="border-b border-electric-blue p-6">
-                        <p class="font-mono text-sm leading-relaxed text-white">
-                            Ich bin Elisa Maglio, bin 23 Jahre alt und<br />
-                            studiere derzeit Mediendesign an der DHBW<br />
-                            in Ravensburg.
-                        </p>
-                        <p
-                            class="font-mono text-sm leading-relaxed mt-4 text-white"
-                        >
-                            Willkommen auf meinem Portfolio!
-                        </p>
-                    </div>
+			<div class="border-b border-zinc-700 px-6 py-6">
+				<p class="font-mono text-2xl">Volleyball spielen</p>
+				<p
+					class="font-mono text-2xl underline decoration-zinc-500 underline-offset-4"
+				>
+					Zeichnen
+				</p>
+				<p
+					class="font-mono text-2xl underline decoration-zinc-500 underline-offset-4"
+				>
+					Lesen
+				</p>
+				<p class="font-mono text-2xl">Brettspiele spielen</p>
+			</div>
 
-                    <div class="border-b border-electric-blue p-6">
-                        <p class="font-mono text-sm text-white">
-                            Volleyball spielen
-                        </p>
-                        <p
-                            class="font-mono text-sm text-white underline decoration-electric-blue"
-                        >
-                            Zeichnen
-                        </p>
-                        <p
-                            class="font-mono text-sm text-white underline decoration-electric-blue"
-                        >
-                            Lesen
-                        </p>
-                        <p class="font-mono text-sm text-white">
-                            Brettspiele spielen
-                        </p>
-                    </div>
+			<div class="border-b border-zinc-700 px-6 py-6">
+				<p class="font-mono text-2xl">offen</p>
+				<p
+					class="font-mono text-2xl underline decoration-zinc-500 underline-offset-4"
+				>
+					etwas_stur
+				</p>
+				<p
+					class="font-mono text-2xl underline decoration-zinc-500 underline-offset-4"
+				>
+					ehrgeizig
+				</p>
+				<p
+					class="font-mono text-2xl underline decoration-zinc-500 underline-offset-4"
+				>
+					interessiert
+				</p>
+				<p
+					class="font-mono text-2xl underline decoration-zinc-500 underline-offset-4"
+				>
+					hilfsbereit
+				</p>
+			</div>
 
-                    <div class="border-b border-electric-blue p-6">
-                        <p class="font-mono text-sm text-white">offen</p>
-                        <p
-                            class="font-mono text-sm text-white underline decoration-electric-blue"
-                        >
-                            etwas_stur
-                        </p>
-                        <p
-                            class="font-mono text-sm text-white underline decoration-electric-blue"
-                        >
-                            ehrgeizig
-                        </p>
-                        <p
-                            class="font-mono text-sm text-white underline decoration-electric-blue"
-                        >
-                            interessiert
-                        </p>
-                        <p
-                            class="font-mono text-sm text-white underline decoration-electric-blue"
-                        >
-                            hilfsbereit
-                        </p>
-                    </div>
+			<div class="px-6 py-6">
+				<p class="font-mono text-2xl">
+					email: <a
+						href="mailto:elisa.maglio@web.de"
+						class="underline decoration-zinc-500 underline-offset-4 transition-opacity hover:opacity-70"
+						>elisa.maglio@web.de</a
+					>
+				</p>
+				<p class="font-mono text-2xl">
+					linkedIn: <a
+						href="https://linkedin.com"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="underline decoration-zinc-500 underline-offset-4 transition-opacity hover:opacity-70"
+						>Elisa Maglio</a
+					>
+				</p>
+			</div>
+		</div>
 
-                    <div class="p-6">
-                        <p class="font-mono text-sm text-white">
-                            email: <a
-                                href="mailto:elisa.maglio@web.de"
-                                class="text-white underline decoration-electric-blue hover:opacity-70"
-                                >elisa.maglio@web.de</a
-                            >
-                        </p>
-                        <p class="font-mono text-sm text-white">
-                            linkedIn: <a
-                                href="https://linkedin.com"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="text-white underline decoration-electric-blue hover:opacity-70"
-                                >Elisa Maglio</a
-                            >
-                        </p>
-                    </div>
-                </div>
-
-                <div
-                    class="flex items-end justify-center bg-gradient-to-b from-amber-100 to-amber-200 min-h-[500px]"
-                >
-                    <img
-                        src="/profile-avatar.png"
-                        alt="Elisa Maglio - 3D Avatar"
-                        class="max-h-[480px] object-contain"
-                    />
-                </div>
-            </div>
-        </div>
-    {/if}
-</section>
+		<div
+			class="flex min-h-[500px] items-end justify-center bg-gradient-to-b from-zinc-200 to-zinc-300 p-8"
+		>
+			<img
+				src="/Avatar.png"
+				alt="Elisa Maglio - 3D Avatar"
+				class="max-h-[520px] object-contain drop-shadow-[0_24px_50px_rgba(0,0,0,0.35)]"
+			/>
+		</div>
+	</div>
+</ExpandableSection>

@@ -2,7 +2,10 @@
 	const currentYear = new Date().getFullYear();
 </script>
 
-<footer id="contact" class="w-full bg-black text-white py-8 px-6 lg:px-12 border-x border-electric-blue border-t border-electric-blue">
+<footer
+	id="contact"
+	class="w-full border-x border-t border-zinc-700 bg-black px-6 py-8 text-white lg:px-12"
+>
 	<!-- Top Row -->
 	<div class="flex items-start justify-between mb-16">
 		<p class="font-mono text-sm tracking-wide">ELISA MAGLIO</p>
