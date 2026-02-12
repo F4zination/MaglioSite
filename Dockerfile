@@ -29,6 +29,8 @@ RUN npm ci --omit=dev
 # Copy built application from builder
 COPY --from=builder /app/build ./build
 COPY --from=builder /app/package.json ./
+# Copy pre-generated HLS assets so streaming works without host bind mounts
+COPY --from=builder /app/videos/hls ./videos/hls
 
 # Expose the port the app runs on
 EXPOSE 3000

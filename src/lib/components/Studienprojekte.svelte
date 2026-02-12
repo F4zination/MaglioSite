@@ -14,6 +14,7 @@
 		date: string;
 		thumbnail: string;
 		videoSlug?: string;
+		ctaLabel?: string;
 		visualTone: string;
 	}
 
@@ -28,10 +29,22 @@
 			date: "Dezember 2024",
 			thumbnail: "/Beehelpful.png",
 			videoSlug: "BeeHelpful",
+			ctaLabel: "Casefilm ansehen",
 			visualTone: "bg-[#b6ccb2]",
 		},
 		{
 			number: "02",
+			title: "Recommended by your algorithm",
+			description:
+				"Ziel dieses Projekts war die Realisierung eines Kurzfilms zu einem Thema aus dem Spannungsfeld „Macht und Medien“. Als inhaltlicher Schwerpunkt wurde der Algorithmus gewählt.\n\nDer Animationsfilm, der Frame für Frame auf einem Tablet gezeichnet wurde, thematisiert die allgegenwärtige Präsenz algorithmischer Systeme im Alltag und deren Einfluss auf unser Leben. Durch die Personifizierung des Algorithmus wird verdeutlicht, wie tiefgreifend und selbstverständlich er in unsere täglichen Handlungen und Entscheidungen eingebunden ist.",
+			tags: ["Animationsfilm", "Konzeption"],
+			semester: "4. Semester",
+			date: "Juni 2025",
+			thumbnail: "/P4.png",
+			visualTone: "bg-gradient-to-br from-[#04181d] via-[#0a4d52] to-[#0f2931]",
+		},
+		{
+			number: "03",
 			title: "Pocket Nature",
 			description:
 				"Ein interaktives Naturerlebnis für unterwegs. Die App verbindet Nutzer mit ihrer natürlichen Umgebung und fördert nachhaltiges Bewusstsein durch gamifizierte Erkundungstouren.",
@@ -40,10 +53,11 @@
 			date: "März 2025",
 			thumbnail: "/PocketNature.png",
 			videoSlug: "Pocket_Nature",
+			ctaLabel: "Casefilm ansehen",
 			visualTone: "bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364]",
 		},
 		{
-			number: "03",
+			number: "04",
 			title: "En Passant",
 			description:
 				"Ein Kurzfilm-Intro für ein Schachturnier. Die Animation verbindet klassische Schachästhetik mit modernem Motion Design.",
@@ -52,6 +66,7 @@
 			date: "Juni 2024",
 			thumbnail: "/Schachvideo.png",
 			videoSlug: "Filmintro_en passant",
+			ctaLabel: "Casefilm ansehen",
 			visualTone: "bg-zinc-200",
 		},
 	];
@@ -132,7 +147,7 @@
 							onclick={() => openProjectVideo(project)}
 							class="appearance-none inline-flex w-fit items-center border border-zinc-900 px-4 py-2 font-mono text-xl transition-colors hover:bg-zinc-900 hover:text-zinc-100"
 						>
-							&gt; Casefilm ansehen
+							&gt; {project.ctaLabel ?? "Casefilm ansehen"}
 						</button>
 					{/if}
 
