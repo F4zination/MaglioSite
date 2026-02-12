@@ -10,63 +10,63 @@
 			</div>
 
 			<div class="border-b border-zinc-700 px-6 py-6">
-				<p class="font-mono text-2xl leading-tight">
+				<p class="font-mono text-xl leading-tight">
 					Ich bin Elisa Maglio, bin 23 Jahre alt und studiere derzeit
 					Mediendesign an der DHBW in Ravensburg.
 				</p>
-				<p class="mt-4 font-mono text-2xl leading-tight">
+				<p class="mt-4 font-mono text-xl leading-tight">
 					Willkommen auf meinem Portfolio!
 				</p>
 			</div>
 
 			<div class="border-b border-zinc-700 px-6 py-6">
-				<p class="font-mono text-2xl">Volleyball spielen</p>
+				<p class="font-mono text-xl">Volleyball spielen</p>
 				<p
-					class="font-mono text-2xl underline decoration-zinc-500 underline-offset-4"
+					class="font-mono text-xl underline decoration-zinc-500 underline-offset-4"
 				>
 					Zeichnen
 				</p>
 				<p
-					class="font-mono text-2xl underline decoration-zinc-500 underline-offset-4"
+					class="font-mono text-xl underline decoration-zinc-500 underline-offset-4"
 				>
 					Lesen
 				</p>
-				<p class="font-mono text-2xl">Brettspiele spielen</p>
+				<p class="font-mono text-xl">Brettspiele spielen</p>
 			</div>
 
 			<div class="border-b border-zinc-700 px-6 py-6">
-				<p class="font-mono text-2xl">offen</p>
+				<p class="font-mono text-xl">offen</p>
 				<p
-					class="font-mono text-2xl underline decoration-zinc-500 underline-offset-4"
+					class="font-mono text-xl underline decoration-zinc-500 underline-offset-4"
 				>
 					etwas_stur
 				</p>
 				<p
-					class="font-mono text-2xl underline decoration-zinc-500 underline-offset-4"
+					class="font-mono text-xl underline decoration-zinc-500 underline-offset-4"
 				>
 					ehrgeizig
 				</p>
 				<p
-					class="font-mono text-2xl underline decoration-zinc-500 underline-offset-4"
+					class="font-mono text-xl underline decoration-zinc-500 underline-offset-4"
 				>
 					interessiert
 				</p>
 				<p
-					class="font-mono text-2xl underline decoration-zinc-500 underline-offset-4"
+					class="font-mono text-xl underline decoration-zinc-500 underline-offset-4"
 				>
 					hilfsbereit
 				</p>
 			</div>
 
 			<div class="px-6 py-6">
-				<p class="font-mono text-2xl">
+				<p class="font-mono text-xl">
 					email: <a
 						href="mailto:elisa.maglio@web.de"
 						class="underline decoration-zinc-500 underline-offset-4 transition-opacity hover:opacity-70"
 						>elisa.maglio@web.de</a
 					>
 				</p>
-				<p class="font-mono text-2xl">
+				<p class="font-mono text-xl">
 					linkedIn: <a
 						href="https://linkedin.com"
 						target="_blank"

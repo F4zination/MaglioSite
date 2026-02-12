@@ -110,23 +110,24 @@
 	</div>
 {/if}
 
-<ExpandableSection sectionId="work" title="STUDIENPROJEKTE">
+<ExpandableSection sectionId="work" title="STUDIENPROJEKTE" alternateEntries={true}>
 	{#each projects as project}
 		<article
 			class="grid min-h-[560px] grid-cols-2 border-b border-zinc-700 last:border-b-0"
 		>
-			<div class="flex flex-col border-r border-zinc-700 bg-zinc-100 text-zinc-900">
+			<div
+				class="entry-text flex flex-col border-r border-zinc-700 bg-zinc-100 text-zinc-900"
+			>
 				<div class="border-b border-zinc-700 px-6 py-4">
 					<h3
-						class="font-mono text-2xl underline decoration-1 underline-offset-4"
+						class="font-mono text-xl underline decoration-1 underline-offset-4"
 					>
 						{project.number} {project.title}
 					</h3>
 				</div>
 				<div class="flex flex-1 flex-col justify-between gap-6 p-6 md:p-8">
-					<div
-						class="max-h-[20rem] space-y-6 overflow-y-auto pr-2 font-mono text-2xl leading-[1.03] md:pr-4 md:text-4xl"
-					>
+					<div class="space-y-4 font-mono text-xl leading-[1.06] md:text-2xl">
+
 						{#each project.description.split("\n\n") as paragraph}
 							<p>{paragraph}</p>
 						{/each}
@@ -136,7 +137,7 @@
 						<button
 							type="button"
 							onclick={() => openProjectVideo(project)}
-							class="appearance-none inline-flex w-fit items-center border border-zinc-900 px-4 py-2 font-mono text-3xl transition-colors hover:bg-zinc-900 hover:text-zinc-100"
+							class="appearance-none inline-flex w-fit items-center border border-zinc-900 px-4 py-2 font-mono text-xl transition-colors hover:bg-zinc-900 hover:text-zinc-100"
 						>
 							&gt; Casefilm ansehen
 						</button>
@@ -152,7 +153,7 @@
 
 			<button
 				type="button"
-				class="group relative flex items-center justify-center overflow-hidden appearance-none p-8 md:p-14 {project.visualTone}"
+				class="entry-media group relative flex items-center justify-center overflow-hidden appearance-none p-8 md:p-14 {project.visualTone}"
 				onclick={() => openProjectVideo(project)}
 				disabled={!project.videoSlug}
 			>

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import faviconEm from '$lib/assets/favicon_em.svg';
+
 	let { class: className = "" } = $props();
 </script>
 
@@ -18,7 +20,7 @@
 				<span class="w-5 h-[2px] bg-white"></span>
 				<span class="w-5 h-[2px] bg-white"></span>
 			</span>
-			<span class="text-xl font-bold tracking-wide">EM</span>
+			<img src={faviconEm} alt="EM" class="h-5 w-auto invert" />
 		</a>
 
 		<!-- Navigation -->

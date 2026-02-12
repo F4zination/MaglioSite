@@ -45,19 +45,21 @@
 	];
 </script>
 
-<ExpandableSection title="BERUFLICHE ERFAHRUNGEN">
+<ExpandableSection title="BERUFLICHE ERFAHRUNGEN" alternateEntries={true}>
 	{#each experiences as experience}
 		<article
 			class="grid min-h-[520px] grid-cols-2 border-b border-zinc-700 last:border-b-0"
 		>
-			<div class="flex flex-col border-r border-zinc-700 bg-zinc-100 text-zinc-900">
+			<div
+				class="entry-text flex flex-col border-r border-zinc-700 bg-zinc-100 text-zinc-900"
+			>
 				<div class="border-b border-zinc-700 px-6 py-4">
 					<h3 class="font-mono text-2xl underline decoration-1 underline-offset-4">
 						{experience.number} {experience.title}
 					</h3>
 				</div>
 				<div class="flex flex-1 flex-col justify-between gap-6 p-6 md:p-8">
-					<div class="space-y-4 font-mono text-2xl leading-[1.06] md:text-3xl">
+					<div class="space-y-4 font-mono text-xl leading-[1.06] md:text-2xl">
 						{#each experience.description.split("\n\n") as paragraph}
 							<p>{paragraph}</p>
 						{/each}
@@ -70,7 +72,7 @@
 			</div>
 
 			<div
-				class="flex items-center justify-center overflow-hidden p-8 md:p-14 {experience.visualTone}"
+				class="entry-media flex items-center justify-center overflow-hidden p-8 md:p-14 {experience.visualTone}"
 			>
 				<img
 					src={experience.thumbnail}

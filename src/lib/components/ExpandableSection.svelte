@@ -3,6 +3,7 @@
 		title: string;
 		sectionId?: string;
 		initialExpanded?: boolean;
+		alternateEntries?: boolean;
 		class?: string;
 		contentClass?: string;
 		titleClass?: string;
@@ -13,6 +14,7 @@
 		title,
 		sectionId,
 		initialExpanded = true,
+		alternateEntries = false,
 		class: className = "",
 		contentClass = "",
 		titleClass = "",
@@ -50,7 +52,11 @@
 	</button>
 
 	{#if expanded}
-		<div class={`border-b border-zinc-700 ${contentClass}`}>
+		<div
+			class={`border-b border-zinc-700 ${alternateEntries
+				? 'alternate-entries'
+				: ''} ${contentClass}`}
+		>
 			{@render children()}
 		</div>
 	{/if}
@@ -59,5 +65,15 @@
 <style>
 	.rotate-180 {
 		transform: rotate(180deg);
+	}
+
+	:global(.alternate-entries > article:nth-child(even) .entry-text) {
+		order: 2;
+		border-right-width: 0;
+		border-left-width: 1px;
+	}
+
+	:global(.alternate-entries > article:nth-child(even) .entry-media) {
+		order: 1;
 	}
 </style>
