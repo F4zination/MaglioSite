@@ -1,4 +1,8 @@
 <script lang="ts">
+	import dropdownArrow from '$lib/assets/dropdown_arrow.svg';
+	import { cubicOut } from 'svelte/easing';
+	import { slide } from 'svelte/transition';
+
 	interface ExpandableSectionProps {
 		title: string;
 		sectionId?: string;
@@ -43,16 +47,18 @@
 		>
 			{title}
 		</h2>
-		<span
-			class="text-3xl transition-transform duration-300 md:text-4xl"
+		<img
+			src={dropdownArrow}
+			alt=""
+			aria-hidden="true"
+			class="h-4 w-7 transition-transform duration-300 md:h-5 md:w-9"
 			class:rotate-180={!expanded}
-		>
-			^
-		</span>
+		/>
 	</button>
 
 	{#if expanded}
 		<div
+			transition:slide={{ duration: 260, easing: cubicOut }}
 			class={`border-b border-zinc-700 ${alternateEntries
 				? 'alternate-entries'
 				: ''} ${contentClass}`}

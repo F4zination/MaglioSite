@@ -6,6 +6,7 @@
 		videoId: string;
 		title?: string;
 		autoplay?: boolean;
+		startFullscreen?: boolean;
 		class?: string;
 	}
 
@@ -13,6 +14,7 @@
 		videoId,
 		title = '',
 		autoplay = false,
+		startFullscreen = true,
 		class: className = '',
 	}: VideoPlayerProps = $props();
 
@@ -21,11 +23,38 @@
 	let isLoading = $state(true);
 	let mounted = false;
 	let hls: Hls | null = null;
+	let fullscreenRequested = false;
+
+	type FullscreenVideo = HTMLVideoElement & {
+		webkitEnterFullscreen?: () => void;
+	};
 
 	function destroyHls() {
 		if (!hls) return;
 		hls.destroy();
 		hls = null;
+	}
+
+	async function requestFullscreenIfNeeded() {
+		if (!startFullscreen || fullscreenRequested || !videoElement) return;
+		fullscreenRequested = true;
+
+		const el = videoElement as FullscreenVideo;
+
+		try {
+			if (document.fullscreenElement) return;
+
+			if (typeof el.requestFullscreen === 'function') {
+				await el.requestFullscreen();
+				return;
+			}
+
+			if (typeof el.webkitEnterFullscreen === 'function') {
+				el.webkitEnterFullscreen();
+			}
+		} catch {
+			// Fullscreen can be denied depending on browser/user gesture policy.
+		}
 	}
 
 	async function initializePlayer() {
@@ -35,6 +64,7 @@
 
 		error = null;
 		isLoading = true;
+		fullscreenRequested = false;
 		destroyHls();
 
 		videoElement.onerror = () => {
@@ -48,13 +78,17 @@
 			isLoading = false;
 		};
 
+		videoElement.onplay = () => {
+			void requestFullscreenIfNeeded();
+		};
+
 		// Safari and browsers with native HLS support.
 		if (videoElement.canPlayType('application/vnd.apple.mpegurl')) {
 			videoElement.src = streamPath;
 			videoElement.load();
 
 			if (autoplay) {
-				void videoElement.play().catch(() => {});
+				void videoElement.play().then(() => requestFullscreenIfNeeded()).catch(() => {});
 			}
 			return;
 		}
@@ -80,7 +114,10 @@
 		instance.on(Hls.Events.MANIFEST_PARSED, () => {
 			isLoading = false;
 			if (autoplay) {
-				void videoElement?.play().catch(() => {});
+				void videoElement
+					?.play()
+					.then(() => requestFullscreenIfNeeded())
+					.catch(() => {});
 			}
 		});
 
