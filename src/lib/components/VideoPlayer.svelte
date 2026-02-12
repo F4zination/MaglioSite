@@ -3,7 +3,8 @@
 	import type Hls from 'hls.js';
 
 	interface VideoPlayerProps {
-		videoId: string;
+		videoId?: string;
+		videoSrc?: string;
 		title?: string;
 		autoplay?: boolean;
 		startFullscreen?: boolean;
@@ -11,7 +12,8 @@
 	}
 
 	let {
-		videoId,
+		videoId = '',
+		videoSrc,
 		title = '',
 		autoplay = false,
 		startFullscreen = true,
@@ -60,8 +62,6 @@
 	async function initializePlayer() {
 		if (!mounted || !videoElement) return;
 
-		const streamPath = `/videos/hls/${encodeURIComponent(videoId)}/playlist.m3u8`;
-
 		error = null;
 		isLoading = true;
 		fullscreenRequested = false;
@@ -81,6 +81,25 @@
 		videoElement.onplay = () => {
 			void requestFullscreenIfNeeded();
 		};
+
+		const directSource = videoSrc?.trim();
+		if (directSource) {
+			videoElement.src = directSource;
+			videoElement.load();
+
+			if (autoplay) {
+				void videoElement.play().then(() => requestFullscreenIfNeeded()).catch(() => {});
+			}
+			return;
+		}
+
+		if (!videoId) {
+			error = 'Video stream could not be loaded.';
+			isLoading = false;
+			return;
+		}
+
+		const streamPath = `/videos/hls/${encodeURIComponent(videoId)}/playlist.m3u8`;
 
 		// Safari and browsers with native HLS support.
 		if (videoElement.canPlayType('application/vnd.apple.mpegurl')) {
@@ -158,6 +177,7 @@
 
 	$effect(() => {
 		videoId;
+		videoSrc;
 		if (mounted) {
 			void initializePlayer();
 		}

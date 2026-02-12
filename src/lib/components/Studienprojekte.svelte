@@ -1,8 +1,10 @@
 <script lang="ts">
 	import ExpandableSection from '$lib/components/ExpandableSection.svelte';
+	import ModelViewer from '$lib/components/ModelViewer.svelte';
 	import VideoPlayer from '$lib/components/VideoPlayer.svelte';
 
 	let activeVideo = $state<string | null>(null);
+	let activeVideoSrc = $state<string | null>(null);
 	let activeTitle = $state<string>("");
 
 	interface Project {
@@ -12,8 +14,10 @@
 		tags: string[];
 		semester: string;
 		date: string;
-		thumbnail: string;
+		thumbnail?: string;
 		videoSlug?: string;
+		videoSrc?: string;
+		modelPath?: string;
 		ctaLabel?: string;
 		visualTone: string;
 	}
@@ -69,26 +73,59 @@
 			ctaLabel: "Casefilm ansehen",
 			visualTone: "bg-zinc-200",
 		},
+		{
+			number: "05",
+			title: "Logo Animation",
+			description:
+				"Das Logo visualisiert den Verlauf eines typischen Semesters: Anfangs geordnet und ruhig, steigern sich mit der Zeit Arbeitsaufwand und Druck, bis das Logo anwächst und schließlich platzt - als Sinnbild für die Überforderung vieler Studierender. Trotz dieser Entwicklung entsteht am Ende ein individuelles Projekt. Die Farbgebung orientiert sich am menschlichen Gehirn und verweist auf Kreativität, Denken und Entwicklung.\n\nEin Retrofilter verleiht der Animation eine passende Ästhetik und knüpft an den Fokus auf das Medium Film im Semester an. Klanglich begleitet ein Aufblasegeräusch den Prozess und macht die visuelle Entwicklung unmittelbar nachvollziehbar.",
+			tags: ["Stop Motion"],
+			semester: "4. Semester",
+			date: "Juni 2025",
+			thumbnail: "/MdRV.png",
+			videoSrc: "/MdRV%20Logo.mov",
+			ctaLabel: "Animation ansehen",
+			visualTone: "bg-[#030d2e]",
+		},
+		{
+			number: "06",
+			title: "Modelling",
+			description:
+				"Dieses Projekt soll untersuchen, wie Algorithmen menschliches Verhalten verändern. Mithilfe des selbst erstellten 3D-Kopfmodells soll in einem kurzen Video veranschaulicht werden, wie Menschen durch Datensysteme transformiert werden, die ihr Handeln analysieren und vorhersagen.\n\nDieses Video ist allerdings noch nicht erstellt, aber hier ist ein Einblick in das bereits erstellte Modell.",
+			tags: ["Blender"],
+			semester: "5. Semester",
+			date: "Dezember 2025",
+			modelPath: "/sculpture.obj",
+			ctaLabel: "3D Modell ansehen",
+			visualTone: "bg-gradient-to-br from-[#060711] via-[#0b1232] to-[#121a41]",
+		},
 	];
 
-	function openVideo(videoSlug: string, title: string) {
+	function openVideo(videoSlug: string | null, videoSrc: string | null, title: string) {
 		activeVideo = videoSlug;
+		activeVideoSrc = videoSrc;
 		activeTitle = title;
 	}
 
 	function closeVideo() {
 		activeVideo = null;
+		activeVideoSrc = null;
 		activeTitle = "";
 	}
 
 	function openProjectVideo(project: Project) {
-		if (!project.videoSlug) return;
-		openVideo(project.videoSlug, project.title);
+		if (!project.videoSlug && !project.videoSrc) return;
+		openVideo(project.videoSlug ?? null, project.videoSrc ?? null, project.title);
+	}
+
+	function handleProjectAction(project: Project) {
+		if (project.videoSlug || project.videoSrc) {
+			openProjectVideo(project);
+		}
 	}
 </script>
 
 <!-- Video Modal -->
-{#if activeVideo}
+{#if activeVideo || activeVideoSrc}
 	<div class="fixed inset-0 z-50 p-4 md:p-8">
 		<button
 			type="button"
@@ -113,16 +150,19 @@
 					✕
 				</button>
 			</div>
-			<VideoPlayer videoId={activeVideo} autoplay={true} class="border border-zinc-700" />
+			<VideoPlayer
+				videoId={activeVideo ?? undefined}
+				videoSrc={activeVideoSrc ?? undefined}
+				autoplay={true}
+				class="border border-zinc-700"
+			/>
 		</div>
 	</div>
 {/if}
 
 <ExpandableSection sectionId="work" title="STUDIENPROJEKTE" alternateEntries={true}>
 	{#each projects as project}
-		<article
-			class="grid min-h-[560px] grid-cols-2 border-b border-zinc-700 last:border-b-0"
-		>
+		<article class="grid min-h-[560px] grid-cols-2 border-b border-zinc-700 last:border-b-0">
 			<div
 				class="entry-text flex flex-col border-r border-zinc-700 bg-zinc-100 text-zinc-900"
 			>
@@ -141,10 +181,10 @@
 						{/each}
 					</div>
 
-					{#if project.videoSlug}
+					{#if project.videoSlug || project.videoSrc || project.modelPath}
 						<button
 							type="button"
-							onclick={() => openProjectVideo(project)}
+							onclick={() => handleProjectAction(project)}
 							class="appearance-none inline-flex w-fit items-center border border-zinc-900 px-4 py-2 font-mono text-xl transition-colors hover:bg-zinc-900 hover:text-zinc-100"
 						>
 							&gt; {project.ctaLabel ?? "Casefilm ansehen"}
@@ -159,19 +199,25 @@
 				</div>
 			</div>
 
-			<button
-				type="button"
-				class="entry-media group relative flex items-center justify-center overflow-hidden appearance-none p-8 md:p-14 {project.visualTone}"
-				onclick={() => openProjectVideo(project)}
-				disabled={!project.videoSlug}
-			>
-				<div class="relative h-full w-full">
-					<img
-						src={project.thumbnail}
-						alt={`${project.title} Thumbnail`}
-						class="h-full max-h-[460px] w-full object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.45)] transition-transform duration-500 group-hover:scale-[1.02]"
-					/>
-					{#if project.videoSlug}
+			{#if project.modelPath}
+				<div
+					id={`model-panel-${project.number}`}
+					class={`entry-media relative overflow-hidden p-6 md:p-10 ${project.visualTone}`}
+				>
+					<ModelViewer modelPath={project.modelPath} class="min-h-[460px]" />
+				</div>
+			{:else if project.videoSlug || project.videoSrc}
+				<button
+					type="button"
+					class={`entry-media group relative flex items-center justify-center overflow-hidden appearance-none p-8 md:p-14 ${project.visualTone}`}
+					onclick={() => handleProjectAction(project)}
+				>
+					<div class="relative h-full w-full">
+						<img
+							src={project.thumbnail}
+							alt={`${project.title} Thumbnail`}
+							class="h-full max-h-[460px] w-full object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.45)] transition-transform duration-500 group-hover:scale-[1.02]"
+						/>
 						<div
 							class="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100"
 						>
@@ -185,9 +231,21 @@
 								</svg>
 							</div>
 						</div>
+					</div>
+				</button>
+			{:else}
+				<div
+					class={`entry-media relative flex items-center justify-center overflow-hidden p-8 md:p-14 ${project.visualTone}`}
+				>
+					{#if project.thumbnail}
+						<img
+							src={project.thumbnail}
+							alt={`${project.title} Thumbnail`}
+							class="h-full max-h-[460px] w-full object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.45)]"
+						/>
 					{/if}
 				</div>
-			</button>
+			{/if}
 		</article>
 	{/each}
 </ExpandableSection>
