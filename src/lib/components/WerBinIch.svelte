@@ -63,14 +63,14 @@
 			<div class="px-6 py-6">
 				<p class="font-mono text-xl">
 					email: <a
-						href="mailto:elisa.maglio@web.de"
+						href="mailto:contact@elisamaglio.de"
 						class="underline decoration-zinc-500 underline-offset-4 transition-opacity hover:opacity-70"
-						>elisa.maglio@web.de</a
+						>contact@elisamaglio.de</a
 					>
 				</p>
 				<p class="font-mono text-xl">
 					linkedIn: <a
-						href="https://linkedin.com"
+						href="https://www.linkedin.com/in/elisa-maglio-559a87336/"
 						target="_blank"
 						rel="noopener noreferrer"
 						class="underline decoration-zinc-500 underline-offset-4 transition-opacity hover:opacity-70"

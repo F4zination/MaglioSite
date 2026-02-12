@@ -8,6 +8,8 @@
 		sectionId?: string;
 		initialExpanded?: boolean;
 		alternateEntries?: boolean;
+		buttonClass?: string;
+		iconClass?: string;
 		class?: string;
 		contentClass?: string;
 		titleClass?: string;
@@ -19,6 +21,8 @@
 		sectionId,
 		initialExpanded = true,
 		alternateEntries = false,
+		buttonClass = "",
+		iconClass = "",
 		class: className = "",
 		contentClass = "",
 		titleClass = "",
@@ -40,7 +44,7 @@
 	<button
 		type="button"
 		onclick={toggleExpanded}
-		class="appearance-none flex w-full items-center justify-center gap-3 border-b border-zinc-700 bg-black px-6 py-5 text-white transition-colors hover:bg-zinc-900"
+		class={`appearance-none flex w-full items-center justify-center gap-3 border-b border-zinc-700 bg-black px-6 py-5 text-white transition-colors hover:bg-zinc-900 ${buttonClass}`}
 	>
 		<h2
 			class={`text-3xl font-light uppercase tracking-[0.08em] md:text-5xl ${titleClass}`}
@@ -51,7 +55,7 @@
 			src={dropdownArrow}
 			alt=""
 			aria-hidden="true"
-			class="h-4 w-7 transition-transform duration-300 md:h-5 md:w-9"
+			class={`h-4 w-7 transition-transform duration-300 md:h-5 md:w-9 ${iconClass}`}
 			class:rotate-180={!expanded}
 		/>
 	</button>

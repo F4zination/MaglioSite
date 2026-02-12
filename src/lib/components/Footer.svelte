@@ -16,11 +16,15 @@
 	<!-- Bottom Row -->
 	<div class="flex items-end justify-between">
 		<a 
-			href="mailto:ELISA.MAGLIO@WEB.DE" 
+			href="mailto:contact@elisamaglio.de" 
 			class="font-mono text-sm tracking-wide hover:opacity-70 transition-opacity"
 		>
-			ELISA.MAGLIO@WEB.DE
+			contact@elisamaglio.de
 		</a>
+		<div class="flex items-center gap-6 font-mono text-sm tracking-wide">
+			<a href="/legal#impressum" class="hover:opacity-70 transition-opacity">IMPRESSUM</a>
+			<a href="/legal#datenschutz" class="hover:opacity-70 transition-opacity">DATENSCHUTZ</a>
+		</div>
 		<a 
 			href="https://linkedin.com" 
 			target="_blank" 
