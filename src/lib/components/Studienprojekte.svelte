@@ -223,32 +223,13 @@
 					/>
 				</div>
 			{:else if project.videoSlug || project.videoSrc}
-				<button
-					type="button"
-					class="entry-media group relative overflow-hidden appearance-none"
-					onclick={() => handleProjectAction(project)}
-				>
-					<div class="relative h-full w-full">
-						<img
-							src={project.thumbnail}
-							alt={`${project.title} Thumbnail`}
-							class="block h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-						/>
-						<div
-							class="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100"
-						>
-							<div class="rounded-full bg-black/75 p-4">
-								<svg
-									class="w-12 h-12 text-white"
-									fill="currentColor"
-									viewBox="0 0 24 24"
-								>
-									<path d="M8 5v14l11-7z" />
-								</svg>
-							</div>
-						</div>
-					</div>
-				</button>
+				<div class="entry-media relative overflow-hidden">
+					<img
+						src={project.thumbnail}
+						alt={`${project.title} Thumbnail`}
+						class="block h-full w-full object-cover"
+					/>
+				</div>
 			{:else}
 				<div class="entry-media relative overflow-hidden">
 					{#if project.thumbnail}
