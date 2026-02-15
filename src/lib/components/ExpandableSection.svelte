@@ -29,7 +29,7 @@
 		children,
 	}: ExpandableSectionProps = $props();
 
-	let expanded = $state(true);
+	let expanded = $state(initialExpanded);
 
 	$effect(() => {
 		expanded = initialExpanded;
@@ -56,7 +56,8 @@
 			alt=""
 			aria-hidden="true"
 			class={`h-4 w-7 transition-transform duration-300 md:h-5 md:w-9 ${iconClass}`}
-			class:rotate-180={!expanded}
+			style:transform={expanded ? 'rotate(0deg)' : 'rotate(180deg)'}
+			style:transform-origin="center"
 		/>
 	</button>
 
@@ -73,10 +74,6 @@
 </section>
 
 <style>
-	.rotate-180 {
-		transform: rotate(180deg);
-	}
-
 	:global(.alternate-entries > article:nth-child(even) .entry-text) {
 		order: 2;
 		border-right-width: 0;

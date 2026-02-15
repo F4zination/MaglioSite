@@ -15,11 +15,6 @@
 			href="/"
 			class="flex items-center gap-2 text-2xl font-bold text-white hover:opacity-70 transition-opacity"
 		>
-			<span class="flex flex-col gap-[3px]">
-				<span class="w-5 h-[2px] bg-white"></span>
-				<span class="w-5 h-[2px] bg-white"></span>
-				<span class="w-5 h-[2px] bg-white"></span>
-			</span>
 			<img src={faviconEm} alt="EM" class="h-5 w-auto invert" />
 		</a>
 
