@@ -33,7 +33,7 @@
 			date: "Dezember 2024",
 			thumbnail: "/Beehelpful.png",
 			videoSlug: "BeeHelpful",
-			ctaLabel: "Casefilm anschauen",
+			ctaLabel: "bald verfügbar",
 		},
 		{
 			number: "02",
@@ -44,6 +44,8 @@
 			semester: "4. Semester",
 			date: "Juni 2025",
 			thumbnail: "/P4.png",
+			videoSlug: "Recommended_by_your_algorithm",
+			ctaLabel: "Casefilm anschauen"
 		},
 		{
 			number: "03",
@@ -215,6 +217,7 @@
 				<div
 					id={`model-panel-${project.number}`}
 					class="entry-media relative overflow-hidden"
+					style="--entry-media-bg: #000;"
 				>
 					<ModelViewer
 						modelPath={project.modelPath}

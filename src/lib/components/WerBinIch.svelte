@@ -80,11 +80,11 @@
 			</div>
 		</div>
 
-		<div class="overflow-hidden">
+		<div class="entry-media flex items-center justify-center overflow-hidden">
 			<img
 				src="/Avatar.png"
 				alt="Elisa Maglio - 3D Avatar"
-				class="block h-full w-full object-cover"
+				class="block w-1/2 h-auto object-contain"
 			/>
 		</div>
 	</div>

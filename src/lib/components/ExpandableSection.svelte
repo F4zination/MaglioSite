@@ -75,7 +75,7 @@
 
 <style>
 	:global(.entry-media) {
-		background-color: #fff;
+		background-color: var(--entry-media-bg, #fff);
 	}
 
 	:global(.alternate-entries > article:nth-child(even) .entry-text) {
