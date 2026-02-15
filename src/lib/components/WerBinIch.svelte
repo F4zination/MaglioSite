@@ -4,7 +4,7 @@
 
 <ExpandableSection sectionId="about" title="WER BIN ICH?">
 	<div class="grid grid-cols-2">
-		<div class="border-r border-zinc-700 bg-zinc-100 text-zinc-900">
+		<div class="bg-zinc-100 text-zinc-900">
 			<div class="border-b border-zinc-700 px-6 py-4">
 				<p class="font-mono text-2xl">Hey :)</p>
 			</div>
@@ -80,13 +80,11 @@
 			</div>
 		</div>
 
-		<div
-			class="flex min-h-[500px] items-end justify-center bg-gradient-to-b from-zinc-200 to-zinc-300 p-8"
-		>
+		<div class="overflow-hidden">
 			<img
 				src="/Avatar.png"
 				alt="Elisa Maglio - 3D Avatar"
-				class="max-h-[520px] object-contain drop-shadow-[0_24px_50px_rgba(0,0,0,0.35)]"
+				class="block h-full w-full object-cover"
 			/>
 		</div>
 	</div>

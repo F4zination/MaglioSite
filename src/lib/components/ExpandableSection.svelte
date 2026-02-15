@@ -76,8 +76,6 @@
 <style>
 	:global(.alternate-entries > article:nth-child(even) .entry-text) {
 		order: 2;
-		border-right-width: 0;
-		border-left-width: 1px;
 	}
 
 	:global(.alternate-entries > article:nth-child(even) .entry-media) {

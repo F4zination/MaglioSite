@@ -19,7 +19,6 @@
 		videoSrc?: string;
 		modelPath?: string;
 		ctaLabel?: string;
-		visualTone: string;
 	}
 
 	const projects: Project[] = [
@@ -34,7 +33,6 @@
 			thumbnail: "/Beehelpful.png",
 			videoSlug: "BeeHelpful",
 			ctaLabel: "Casefilm ansehen",
-			visualTone: "bg-[#b6ccb2]",
 		},
 		{
 			number: "02",
@@ -45,7 +43,6 @@
 			semester: "4. Semester",
 			date: "Juni 2025",
 			thumbnail: "/P4.png",
-			visualTone: "bg-gradient-to-br from-[#04181d] via-[#0a4d52] to-[#0f2931]",
 		},
 		{
 			number: "03",
@@ -58,7 +55,6 @@
 			thumbnail: "/PocketNature.png",
 			videoSlug: "Pocket_Nature",
 			ctaLabel: "Casefilm ansehen",
-			visualTone: "bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364]",
 		},
 		{
 			number: "04",
@@ -71,7 +67,6 @@
 			thumbnail: "/Schachvideo.png",
 			videoSlug: "Filmintro_en passant",
 			ctaLabel: "Casefilm ansehen",
-			visualTone: "bg-zinc-200",
 		},
 		{
 			number: "05",
@@ -84,7 +79,6 @@
 			thumbnail: "/MdRV.png",
 			videoSrc: "/MdRV%20Logo.mov",
 			ctaLabel: "Animation ansehen",
-			visualTone: "bg-[#030d2e]",
 		},
 		{
 			number: "06",
@@ -96,7 +90,6 @@
 			date: "Dezember 2025",
 			modelPath: "/sculpture.obj",
 			ctaLabel: "3D Modell ansehen",
-			visualTone: "bg-gradient-to-br from-[#060711] via-[#0b1232] to-[#121a41]",
 		},
 	];
 
@@ -162,9 +155,9 @@
 
 <ExpandableSection sectionId="work" title="STUDIENPROJEKTE" alternateEntries={true}>
 	{#each projects as project}
-		<article class="grid min-h-[560px] grid-cols-2 border-b border-zinc-700 last:border-b-0">
+		<article class="grid grid-cols-2 border-b border-zinc-700 last:border-b-0">
 			<div
-				class="entry-text flex flex-col border-r border-zinc-700 bg-zinc-100 text-zinc-900"
+				class="entry-text flex flex-col bg-zinc-100 text-zinc-900"
 			>
 				<div class="border-b border-zinc-700 px-6 py-4">
 					<h3
@@ -202,21 +195,21 @@
 			{#if project.modelPath}
 				<div
 					id={`model-panel-${project.number}`}
-					class={`entry-media relative overflow-hidden p-6 md:p-10 ${project.visualTone}`}
+					class="entry-media relative overflow-hidden"
 				>
 					<ModelViewer modelPath={project.modelPath} class="min-h-[460px]" />
 				</div>
 			{:else if project.videoSlug || project.videoSrc}
 				<button
 					type="button"
-					class={`entry-media group relative flex items-center justify-center overflow-hidden appearance-none p-8 md:p-14 ${project.visualTone}`}
+					class="entry-media group relative overflow-hidden appearance-none"
 					onclick={() => handleProjectAction(project)}
 				>
 					<div class="relative h-full w-full">
 						<img
 							src={project.thumbnail}
 							alt={`${project.title} Thumbnail`}
-							class="h-full max-h-[460px] w-full object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.45)] transition-transform duration-500 group-hover:scale-[1.02]"
+							class="block h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
 						/>
 						<div
 							class="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100"
@@ -234,14 +227,12 @@
 					</div>
 				</button>
 			{:else}
-				<div
-					class={`entry-media relative flex items-center justify-center overflow-hidden p-8 md:p-14 ${project.visualTone}`}
-				>
+				<div class="entry-media relative overflow-hidden">
 					{#if project.thumbnail}
 						<img
 							src={project.thumbnail}
 							alt={`${project.title} Thumbnail`}
-							class="h-full max-h-[460px] w-full object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.45)]"
+							class="block h-full w-full object-cover"
 						/>
 					{/if}
 				</div>

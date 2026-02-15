@@ -8,7 +8,6 @@
 		tags: string[];
 		date: string;
 		thumbnail: string;
-		visualTone: string;
 	}
 
 	const educations: Education[] = [
@@ -20,7 +19,6 @@
 			tags: ["Abschlussarbeit", "Mediengestaltung"],
 			date: "2024",
 			thumbnail: "/AP.png",
-			visualTone: "bg-zinc-200",
 		},
 		{
 			number: "02",
@@ -30,18 +28,15 @@
 			tags: ["Branding", "Corporate Design"],
 			date: "2023",
 			thumbnail: "/Biogemüse RV.png",
-			visualTone: "bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-700",
 		},
 	];
 </script>
 
 <ExpandableSection title="AUSBILDUNG" alternateEntries={true}>
 	{#each educations as education}
-		<article
-			class="grid min-h-[520px] grid-cols-2 border-b border-zinc-700 last:border-b-0"
-		>
+		<article class="grid grid-cols-2 border-b border-zinc-700 last:border-b-0">
 			<div
-				class="entry-text flex flex-col border-r border-zinc-700 bg-zinc-100 text-zinc-900"
+				class="entry-text flex flex-col bg-zinc-100 text-zinc-900"
 			>
 				<div class="border-b border-zinc-700 px-6 py-4">
 					<h3 class="font-mono text-2xl underline decoration-1 underline-offset-4">
@@ -61,13 +56,11 @@
 				</div>
 			</div>
 
-			<div
-				class="entry-media flex items-center justify-center overflow-hidden p-8 md:p-14 {education.visualTone}"
-			>
+			<div class="entry-media overflow-hidden">
 				<img
 					src={education.thumbnail}
 					alt={`${education.title} Thumbnail`}
-					class="h-full max-h-[430px] w-full object-contain drop-shadow-[0_24px_50px_rgba(0,0,0,0.35)]"
+					class="block h-full w-full object-cover"
 				/>
 			</div>
 		</article>
