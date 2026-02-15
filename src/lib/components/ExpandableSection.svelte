@@ -74,6 +74,10 @@
 </section>
 
 <style>
+	:global(.entry-media) {
+		background-color: #fff;
+	}
+
 	:global(.alternate-entries > article:nth-child(even) .entry-text) {
 		order: 2;
 	}
