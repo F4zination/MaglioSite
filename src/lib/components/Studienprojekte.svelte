@@ -33,7 +33,7 @@
 			date: "Dezember 2024",
 			thumbnail: "/Beehelpful.png",
 			videoSlug: "BeeHelpful",
-			ctaLabel: "bald verfügbar",
+			ctaLabel: "Casefilm anschauen",
 		},
 		{
 			number: "02",
@@ -45,7 +45,7 @@
 			date: "Juni 2025",
 			thumbnail: "/P4.png",
 			videoSlug: "Recommended_by_your_algorithm",
-			ctaLabel: "Casefilm anschauen"
+			ctaLabel: "bald verfügbar"
 		},
 		{
 			number: "03",
