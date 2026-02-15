@@ -32,7 +32,7 @@
 			date: "Dezember 2024",
 			thumbnail: "/Beehelpful.png",
 			videoSlug: "BeeHelpful",
-			ctaLabel: "Casefilm ansehen",
+			ctaLabel: "Casefilm anschauen",
 		},
 		{
 			number: "02",
@@ -54,7 +54,7 @@
 			date: "März 2025",
 			thumbnail: "/PocketNature.png",
 			videoSlug: "Pocket_Nature",
-			ctaLabel: "Casefilm ansehen",
+			ctaLabel: "Casefilm anschauen",
 		},
 		{
 			number: "04",
@@ -66,7 +66,7 @@
 			date: "Juni 2024",
 			thumbnail: "/Schachvideo.png",
 			videoSlug: "Filmintro_en passant",
-			ctaLabel: "Casefilm ansehen",
+			ctaLabel: "Casefilm anschauen",
 		},
 		{
 			number: "05",
@@ -166,7 +166,7 @@
 						{project.number} {project.title}
 					</h3>
 				</div>
-				<div class="flex flex-1 flex-col justify-between gap-6 p-6 md:p-8">
+				<div class="flex flex-1 flex-col gap-6 p-6 md:p-8">
 					<div class="space-y-4 font-mono text-xl leading-[1.06] md:text-xl">
 
 						{#each project.description.split("\n\n") as paragraph}
@@ -178,9 +178,9 @@
 						<button
 							type="button"
 							onclick={() => handleProjectAction(project)}
-							class="appearance-none inline-flex w-fit items-center border border-zinc-900 px-4 py-2 font-mono text-xl transition-colors hover:bg-zinc-900 hover:text-zinc-100"
+							class="mt-auto appearance-none inline-flex w-fit items-center border border-zinc-900 px-4 py-2 font-mono text-xl transition-colors hover:bg-zinc-900 hover:text-zinc-100"
 						>
-							&gt; {project.ctaLabel ?? "Casefilm ansehen"}
+							&gt; {project.ctaLabel ?? "Casefilm anschauen"}
 						</button>
 					{/if}
 
