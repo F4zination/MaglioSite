@@ -6,6 +6,7 @@
 	let activeVideo = $state<string | null>(null);
 	let activeVideoSrc = $state<string | null>(null);
 	let activeTitle = $state<string>("");
+	let modelSkylightEnabled = $state(false);
 
 	interface Project {
 		number: string;
@@ -115,6 +116,10 @@
 			openProjectVideo(project);
 		}
 	}
+
+	function toggleModelSkylight() {
+		modelSkylightEnabled = !modelSkylightEnabled;
+	}
 </script>
 
 <!-- Video Modal -->
@@ -174,7 +179,21 @@
 						{/each}
 					</div>
 
-					{#if project.videoSlug || project.videoSrc || project.modelPath}
+					{#if project.modelPath}
+						<button
+							type="button"
+							onclick={toggleModelSkylight}
+							aria-pressed={modelSkylightEnabled}
+							aria-label={modelSkylightEnabled
+								? "Zur Standardbeleuchtung wechseln"
+								: "Modell besser sichtbar machen"}
+							class="mt-auto appearance-none inline-flex w-fit items-center border border-zinc-900 px-4 py-2 font-mono text-xl transition-colors hover:bg-zinc-900 hover:text-zinc-100"
+						>
+							&gt; {modelSkylightEnabled
+								? "Zur Standardbeleuchtung wechseln"
+								: "Modell besser sichtbar machen"}
+						</button>
+					{:else if project.videoSlug || project.videoSrc}
 						<button
 							type="button"
 							onclick={() => handleProjectAction(project)}
@@ -197,7 +216,11 @@
 					id={`model-panel-${project.number}`}
 					class="entry-media relative overflow-hidden"
 				>
-					<ModelViewer modelPath={project.modelPath} class="min-h-[460px]" />
+					<ModelViewer
+						modelPath={project.modelPath}
+						skylightEnabled={modelSkylightEnabled}
+						class="min-h-[460px]"
+					/>
 				</div>
 			{:else if project.videoSlug || project.videoSrc}
 				<button
