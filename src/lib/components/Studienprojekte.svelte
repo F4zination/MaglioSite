@@ -174,7 +174,7 @@
 					</h3>
 				</div>
 				<div class="flex flex-1 flex-col justify-between gap-6 p-6 md:p-8">
-					<div class="space-y-4 font-mono text-xl leading-[1.06] md:text-2xl">
+					<div class="space-y-4 font-mono text-xl leading-[1.06] md:text-xl">
 
 						{#each project.description.split("\n\n") as paragraph}
 							<p>{paragraph}</p>
@@ -191,7 +191,7 @@
 						</button>
 					{/if}
 
-					<div class="border-t border-zinc-700 pt-4 font-mono text-2xl">
+					<div class="border-t border-zinc-700 pt-4 font-mono text-xl">
 						<p>{project.tags.join(", ")}</p>
 						<p>{project.semester}</p>
 						<p>{project.date}</p>

@@ -20,41 +20,41 @@
 			</div>
 
 			<div class="border-b  border-zinc-700 px-6 py-6">
-				<p class="font-mono text-xl underline decoration-zinc-500 underline-offset-4 ">
-					Volleyball spielen
+				<p class="font-mono text-xl  decoration-zinc-500 ">
+					Volleyball
 				</p>
-				<p class="font-mono text-xl underline decoration-zinc-500 underline-offset-4">
+				<p class="font-mono text-xl  decoration-zinc-500 ">
 					Zeichnen
 				</p>
-				<p class="font-mono text-xl underline decoration-zinc-500 underline-offset-4">
+				<p class="font-mono text-xl  decoration-zinc-500 ">
 					Lesen
 				</p>
-				<p class="font-mono text-xl underline decoration-zinc-500 underline-offset-4">
-					Brettspiele spielen
+				<p class="font-mono text-xl  decoration-zinc-500 ">
+					Brettspiele
 				</p>
 			</div>
 
 			<div class="border-b border-zinc-700 px-6 py-6">
-				<p class="font-mono text-xl underline decoration-zinc-500 underline-offset-4">
+				<p class="font-mono text-xl  decoration-zinc-500 ">
 					offen
 				</p>
 				<p
-					class="font-mono text-xl underline decoration-zinc-500 underline-offset-4"
+					class="font-mono text-xl  decoration-zinc-500 "
 				>
-					etwas_stur
+					etwas stur
 				</p>
 				<p
-					class="font-mono text-xl underline decoration-zinc-500 underline-offset-4"
+					class="font-mono text-xl  decoration-zinc-500 "
 				>
 					ehrgeizig
 				</p>
 				<p
-					class="font-mono text-xl underline decoration-zinc-500 underline-offset-4"
+					class="font-mono text-xl  decoration-zinc-500 "
 				>
 					interessiert
 				</p>
 				<p
-					class="font-mono text-xl underline decoration-zinc-500 underline-offset-4"
+					class="font-mono text-xl  decoration-zinc-500 "
 				>
 					hilfsbereit
 				</p>
