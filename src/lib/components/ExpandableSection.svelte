@@ -47,7 +47,7 @@
 		class={`appearance-none flex w-full items-center justify-center gap-3 border-b border-zinc-700 bg-black px-6 py-5 text-white transition-colors hover:bg-zinc-900 ${buttonClass}`}
 	>
 		<h2
-			class={`text-3xl font-light uppercase tracking-[0.08em] md:text-5xl ${titleClass}`}
+			class={`font-archivo-expanded text-3xl font-bold uppercase tracking-[0.08em] md:text-5xl ${titleClass}`}
 		>
 			{title}
 		</h2>
