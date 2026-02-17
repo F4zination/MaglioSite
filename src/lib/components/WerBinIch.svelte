@@ -2,7 +2,7 @@
 	import ExpandableSection from '$lib/components/ExpandableSection.svelte';
 </script>
 
-<ExpandableSection sectionId="about" title="WER BIN ICH?">
+<ExpandableSection sectionId="about" title="Wer bin ich?">
 	<div class="grid grid-cols-2">
 		<div class="bg-zinc-100 text-zinc-900">
 			<div class="border-b border-zinc-700 px-6 py-4">
@@ -80,7 +80,10 @@
 			</div>
 		</div>
 
-		<div class="entry-media flex items-center justify-center overflow-hidden">
+		<div
+			class="entry-media flex items-end justify-center overflow-hidden"
+			style="--entry-media-bg: #f4f4f5;"
+		>
 			<img
 				src="/Avatar.png"
 				alt="Elisa Maglio - 3D Avatar"

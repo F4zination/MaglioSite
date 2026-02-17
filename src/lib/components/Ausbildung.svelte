@@ -32,7 +32,7 @@
 	];
 </script>
 
-<ExpandableSection title="AUSBILDUNG" alternateEntries={true}>
+<ExpandableSection title="Ausbildung" alternateEntries={true}>
 	{#each educations as education}
 		<article class="grid grid-cols-2 border-b border-zinc-700 last:border-b-0">
 			<div

@@ -76,6 +76,7 @@
 <style>
 	:global(.entry-media) {
 		background-color: var(--entry-media-bg, #fff);
+		border-left: 1px solid #000;
 	}
 
 	:global(.alternate-entries > article:nth-child(even) .entry-text) {
@@ -84,5 +85,7 @@
 
 	:global(.alternate-entries > article:nth-child(even) .entry-media) {
 		order: 1;
+		border-left: 0;
+		border-right: 1px solid #000;
 	}
 </style>

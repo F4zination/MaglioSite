@@ -41,7 +41,7 @@
 	];
 </script>
 
-<ExpandableSection title="BERUFLICHE ERFAHRUNGEN" alternateEntries={true}>
+<ExpandableSection title="Berufliche Erfahrungen" alternateEntries={true}>
 	{#each experiences as experience}
 		<article class="grid grid-cols-2 border-b border-zinc-700 last:border-b-0">
 			<div

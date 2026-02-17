@@ -194,7 +194,7 @@
 	</div>
 {/if}
 
-<ExpandableSection sectionId="work" title="STUDIENPROJEKTE" alternateEntries={true}>
+<ExpandableSection sectionId="work" title="Studienprojekte" alternateEntries={true}>
 	{#each projects as project}
 		<article class="grid grid-cols-2 border-b border-zinc-700 last:border-b-0">
 			<div
@@ -221,13 +221,13 @@
 							onclick={toggleModelSkylight}
 							aria-pressed={modelSkylightEnabled}
 							aria-label={modelSkylightEnabled
-								? "Zur Standardbeleuchtung wechseln"
-								: "Modell besser sichtbar machen"}
+								? "Licht aus"
+								: "Licht ein"}
 							class="mt-auto appearance-none inline-flex w-fit items-center border border-zinc-900 px-4 py-2 font-mono text-xl transition-colors hover:bg-zinc-900 hover:text-zinc-100"
 						>
 							&gt; {modelSkylightEnabled
-								? "Zur Standardbeleuchtung wechseln"
-								: "Modell besser sichtbar machen"}
+								? "Licht aus"
+								: "Licht ein"}
 						</button>
 					{:else if project.videoSlug || project.videoSrc || project.documentUrl}
 						<button
