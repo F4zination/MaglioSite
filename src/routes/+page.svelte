@@ -8,7 +8,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 </script>
 
-<div class="min-h-screen border border-zinc-700 bg-black">
+<div class="min-h-screen w-full overflow-x-hidden border border-zinc-700 bg-black">
 	<!-- Header -->
 	<Header />
 

@@ -34,9 +34,9 @@
 
 <ExpandableSection title="Eigene Projekte" alternateEntries={true}>
 	{#each projects as project}
-		<article class="grid grid-cols-2 border-b border-zinc-700 last:border-b-0">
+		<article class="grid grid-cols-1 border-b border-zinc-700 last:border-b-0 md:grid-cols-2">
 			<div
-				class="entry-text flex flex-col bg-zinc-100 text-zinc-900"
+				class="entry-text order-2 flex flex-col bg-zinc-100 text-zinc-900 md:order-1"
 			>
 				<div class="border-b border-zinc-700 px-6 py-4">
 					<h3 class="font-mono text-2xl underline decoration-1 underline-offset-4">
@@ -56,7 +56,7 @@
 				</div>
 			</div>
 
-			<div class="entry-media overflow-hidden">
+			<div class="entry-media order-1 overflow-hidden md:order-2">
 				<img
 					src={project.thumbnail}
 					alt={`${project.title} Thumbnail`}

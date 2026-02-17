@@ -5,10 +5,10 @@
 </script>
 
 <header
-	class="sticky top-0 z-50 border-b border-zinc-700 bg-black {className}"
+	class="sticky top-0 z-50 w-full border-b border-zinc-700 bg-black {className}"
 >
 	<div
-		class="flex items-center justify-between border-x border-zinc-700 px-6 py-4"
+		class="flex w-full items-center justify-between border-x border-zinc-700 px-3 py-4 sm:px-6"
 	>
 		<!-- Logo -->
 		<a
@@ -19,22 +19,22 @@
 		</a>
 
 		<!-- Navigation -->
-		<nav class="flex items-center gap-8">
+		<nav class="flex items-center gap-4 sm:gap-8">
 			<a
 				href="#about"
-				class="text-sm font-medium tracking-wider text-white hover:opacity-70 transition-opacity uppercase"
+				class="text-xs font-medium tracking-wider text-white uppercase transition-opacity hover:opacity-70 sm:text-sm"
 			>
 				ABOUT
 			</a>
 			<a
 				href="#work"
-				class="text-sm font-medium tracking-wider text-white hover:opacity-70 transition-opacity uppercase"
+				class="text-xs font-medium tracking-wider text-white uppercase transition-opacity hover:opacity-70 sm:text-sm"
 			>
 				WORK
 			</a>
 			<a
 				href="#contact"
-				class="text-sm font-medium tracking-wider text-white hover:opacity-70 transition-opacity uppercase"
+				class="text-xs font-medium tracking-wider text-white uppercase transition-opacity hover:opacity-70 sm:text-sm"
 			>
 				CONTACT
 			</a>

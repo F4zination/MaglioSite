@@ -40,14 +40,14 @@
 	}
 </script>
 
-<section id={sectionId} class={`w-full border-x border-zinc-700 bg-black ${className}`}>
+<section id={sectionId} class={`w-full overflow-x-hidden border-x border-zinc-700 bg-black ${className}`}>
 	<button
 		type="button"
 		onclick={toggleExpanded}
-		class={`appearance-none flex w-full items-center justify-center gap-3 border-b border-zinc-700 bg-black px-6 py-5 text-white transition-colors hover:bg-zinc-900 ${buttonClass}`}
+		class={`appearance-none flex w-full items-center justify-center gap-2 border-b border-zinc-700 bg-black px-4 py-4 text-white transition-colors hover:bg-zinc-900 sm:gap-3 sm:px-6 sm:py-5 ${buttonClass}`}
 	>
 		<h2
-			class={`font-archivo-expanded text-3xl font-bold uppercase tracking-[0.08em] md:text-5xl ${titleClass}`}
+			class={`font-archivo-expanded text-center text-2xl font-bold uppercase tracking-[0.08em] sm:text-3xl md:text-5xl ${titleClass}`}
 		>
 			{title}
 		</h2>
@@ -76,16 +76,23 @@
 <style>
 	:global(.entry-media) {
 		background-color: var(--entry-media-bg, #fff);
-		border-left: 1px solid #000;
+		border-bottom: 1px solid #000;
 	}
 
-	:global(.alternate-entries > article:nth-child(even) .entry-text) {
-		order: 2;
-	}
+	@media (min-width: 768px) {
+		:global(.entry-media) {
+			border-bottom: 0;
+			border-left: 1px solid #000;
+		}
 
-	:global(.alternate-entries > article:nth-child(even) .entry-media) {
-		order: 1;
-		border-left: 0;
-		border-right: 1px solid #000;
+		:global(.alternate-entries > article:nth-child(even) .entry-text) {
+			order: 2;
+		}
+
+		:global(.alternate-entries > article:nth-child(even) .entry-media) {
+			order: 1;
+			border-left: 0;
+			border-right: 1px solid #000;
+		}
 	}
 </style>

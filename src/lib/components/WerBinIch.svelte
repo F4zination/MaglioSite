@@ -3,8 +3,8 @@
 </script>
 
 <ExpandableSection sectionId="about" title="Wer bin ich?">
-	<div class="grid grid-cols-2">
-		<div class="bg-zinc-100 text-zinc-900">
+	<div class="grid grid-cols-1 md:grid-cols-2">
+		<div class="order-2 bg-zinc-100 text-zinc-900 md:order-1">
 			<div class="border-b border-zinc-700 px-6 py-4">
 				<p class="font-mono text-2xl">Hey :)</p>
 			</div>
@@ -81,13 +81,13 @@
 		</div>
 
 		<div
-			class="entry-media flex items-end justify-center overflow-hidden"
+			class="entry-media order-1 flex items-end justify-center overflow-hidden md:order-2"
 			style="--entry-media-bg: #f4f4f5;"
 		>
 			<img
 				src="/Avatar.png"
 				alt="Elisa Maglio - 3D Avatar"
-				class="block w-1/2 h-auto object-contain"
+				class="block h-auto max-h-[70vh] w-full object-contain md:max-h-none md:w-1/2"
 			/>
 		</div>
 	</div>
