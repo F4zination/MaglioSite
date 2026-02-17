@@ -19,6 +19,7 @@
 		videoSlug?: string;
 		videoSrc?: string;
 		modelPath?: string;
+		documentUrl?: string;
 		ctaLabel?: string;
 	}
 
@@ -33,13 +34,13 @@
 			date: "Dezember 2024",
 			thumbnail: "/Beehelpful.png",
 			videoSlug: "BeeHelpful",
-			ctaLabel: "Casefilm anschauen",
+			ctaLabel: "Casefilm ansehen",
 		},
 		{
 			number: "02",
 			title: "Recommended by your algorithm",
 			description:
-				"Ziel dieses Projekts war die Realisierung eines Kurzfilms zu einem Thema aus dem Spannungsfeld „Macht und Medien“. Als inhaltlicher Schwerpunkt wurde der Algorithmus gewählt.\n\nDer Animationsfilm, der Frame für Frame auf einem Tablet gezeichnet wurde, thematisiert die allgegenwärtige Präsenz algorithmischer Systeme im Alltag und deren Einfluss auf unser Leben. Durch die Personifizierung des Algorithmus wird verdeutlicht, wie tiefgreifend und selbstverständlich er in unsere täglichen Handlungen und Entscheidungen eingebunden ist.",
+				"Ziel dieses Projekts war die Realisierung eines Kurzfilms zu einem Thema aus dem Spannungsfeld „Macht und Medien“. Als inhaltlicher Schwerpunkt wurde der Algorithmus gewählt.\n\nDer Animationsfilm, welcher Frame by Frame auf einem Tablet gezeichnet wurde, thematisiert die allgegenwärtige Präsenz algorithmischer Systeme im Alltag und deren Einfluss auf unser Leben. Durch die Personifizierung des Algorithmus wird verdeutlicht, wie tiefgreifend und selbstverständlich er in unsere täglichen Handlungen und Entscheidungen eingebunden ist.",
 			tags: ["Animationsfilm", "Konzeption"],
 			semester: "4. Semester",
 			date: "Juni 2025",
@@ -49,9 +50,21 @@
 		},
 		{
 			number: "03",
+			title: "Filmintro",
+			description:
+				"Die Aufgabe bestand darin, ein Intro mithilfe von Blender zu konzipieren, zu bauen und zu animieren.\n\nIn dem Film geht es um einen Serienmörder, der seine Opfer stets auf dieselbe Weise tötet. Er folgt dabei einem perfiden, immer gleichen Muster: Die Morde geschehen scheinbar beiläufig - „en passant“, wie im Schach, also „beim Vorbeigehen“. Genau dieser Schachzug wurde deshalb als Symbol für das Intro gewählt, da er die Eleganz und Unauffälligkeit seiner Vorgehensweise widerspiegelt.\n\nDie Farbgebung erinnert an eine düstere Abenddämmerung - dunkel und unheimlich. Nebel und punktuelle Lichtquellen verstärken die gruselige, spannungsgeladene Atmosphäre des Films.",
+			tags: ["Blender"],
+			semester: "4. Semester",
+			date: "Juni 2025",
+			thumbnail: "/Schachvideo.png",
+			videoSlug: "Filmintro_en passant",
+			ctaLabel: "Intro ansehen",
+		},
+		{
+			number: "04",
 			title: "Pocket Nature",
 			description:
-				"Ein interaktives Naturerlebnis für unterwegs. Die App verbindet Nutzer mit ihrer natürlichen Umgebung und fördert nachhaltiges Bewusstsein durch gamifizierte Erkundungstouren.",
+				"Pocket Nature ist eine spielerische App, die Kinder wieder nach draußen bringt, indem sie echte Pflanzen, Tiere und Pilze entdecken, sammeln und zu einem lebendigen Ökosystem verbinden.\nSo wird Naturwissen nebenbei vermittelt und aus digitaler Neugier echte Naturverbundenheit.",
 			tags: ["App Design", "UX Research"],
 			semester: "4. Semester",
 			date: "März 2025",
@@ -59,23 +72,12 @@
 			videoSlug: "Pocket_Nature",
 			ctaLabel: "Casefilm anschauen",
 		},
-		{
-			number: "04",
-			title: "En Passant",
-			description:
-				"Ein Kurzfilm-Intro für ein Schachturnier. Die Animation verbindet klassische Schachästhetik mit modernem Motion Design.",
-			tags: ["Motion Design", "Film"],
-			semester: "2. Semester",
-			date: "Juni 2024",
-			thumbnail: "/Schachvideo.png",
-			videoSlug: "Filmintro_en passant",
-			ctaLabel: "Casefilm anschauen",
-		},
+
 		{
 			number: "05",
 			title: "Logo Animation",
 			description:
-				"Das Logo visualisiert den Verlauf eines typischen Semesters: Anfangs geordnet und ruhig, steigern sich mit der Zeit Arbeitsaufwand und Druck, bis das Logo anwächst und schließlich platzt - als Sinnbild für die Überforderung vieler Studierender. Trotz dieser Entwicklung entsteht am Ende ein individuelles Projekt. Die Farbgebung orientiert sich am menschlichen Gehirn und verweist auf Kreativität, Denken und Entwicklung.\n\nEin Retrofilter verleiht der Animation eine passende Ästhetik und knüpft an den Fokus auf das Medium Film im Semester an. Klanglich begleitet ein Aufblasegeräusch den Prozess und macht die visuelle Entwicklung unmittelbar nachvollziehbar.",
+				"Das Logo visualisiert den Verlauf eines typischen Semesters: Anfangs geordnet und ruhig, steigern sich mit der Zeit Arbeitsaufwand und Druck, bis das Logo anwächst und schließlich platzt – als Sinnbild für die Überforderung vieler Studierender. Trotz dieser Entwicklung entsteht am Ende ein individuelles Projekt.\nDie Farbgebung orientiert sich am menschlichen Gehirn und verweist auf Kreativität, Denken und Entwicklung. Ein Retrofilter verleiht der Animation eine passende Ästhetik und knüpft an den Fokus auf das Medium Film im Semester an. Klanglich begleitet ein Aufblasgeräusch den Prozess und macht die visuelle Entwicklung unmittelbar nachvollziehbar.",
 			tags: ["Stop Motion"],
 			semester: "4. Semester",
 			date: "Juni 2025",
@@ -93,6 +95,28 @@
 			date: "Dezember 2025",
 			modelPath: "/sculpture.obj",
 			ctaLabel: "3D Modell ansehen",
+		},
+		{
+			number: "07",
+			title: "Branding Museum Langenargen",
+			description:
+				"Im 5. Semester bot sich uns eine einmalige Gelegenheit: die Entwicklung eines neuen Brandings für ein reales Museum in Langenargen.\n\nZiel unseres Gestaltungskonzepts war es, die starke regionale Verankerung des Museums hervorzuheben. Die unmittelbare Lage am Bodensee diente dabei als zentrale Inspirationsquelle und führte zur Idee, das Museum künftig „Museeum“ zu nennen.\n\nDarüber hinaus standen für uns Werte wie Verbindung und Vertrauen im Fokus - Qualitäten, die ein Museum als kultureller Ort vermitteln sollte. Dieses Leitmotiv des Verbindens, des Brückenbauens spiegelt sich konsequent im visuellen Erscheinungsbild wider. Grafisch wird es durch miteinander verbundene Kreisformen aufgegriffen, die sowohl Nähe als auch Austausch symbolisieren und dem Branding eine klare, einprägsame Identität verleihen.",
+			tags: ["Designkonzeption"],
+			semester: "5. Semester",
+			date: "Dezember 2025",
+			thumbnail: "/MuseumLangenargen.png",
+			documentUrl: "/Brandbook_MuseumLangenargen.pdf",
+			ctaLabel: "Brandbook ansehen",
+		},
+		{
+			number: "08",
+			title: "Das ExperTier",
+			description:
+				"Viele Menschen haben nur ein sehr begrenztes Wissen über die Tierwelt. Sie können viele Arten weder richtig benennen noch grundlegende Fakten einschätzen. Dieses fehlende Basiswissen führt dazu, dass Biodiversität abstrakt wirkt und ihr Wert im Alltag kaum wahrgenommen wird.\n\nHier setzt das Projekt an: Ein Kartenspiel, das Spieler über Schätzen und Vergleichen intuitiv an grundlegende Tierfakten heranführt. Durch den spielerischen Zugang entsteht ein natürlicher Lerneffekt, ohne dass es sich wie klassische Wissensvermittlung anfühlt. Zielgruppe sind sowohl Kinder als auch Erwachsene, die Interesse an Tieren haben.",
+			tags: ["Game Design", "Konzeption"],
+			semester: "5. Semester",
+			date: "Dezember 2025",
+			thumbnail: "/Das_Expertier.png",
 		},
 	];
 
@@ -113,9 +137,19 @@
 		openVideo(project.videoSlug ?? null, project.videoSrc ?? null, project.title);
 	}
 
+	function openProjectDocument(project: Project) {
+		if (!project.documentUrl) return;
+		window.open(project.documentUrl, "_blank", "noopener,noreferrer");
+	}
+
 	function handleProjectAction(project: Project) {
 		if (project.videoSlug || project.videoSrc) {
 			openProjectVideo(project);
+			return;
+		}
+
+		if (project.documentUrl) {
+			openProjectDocument(project);
 		}
 	}
 
@@ -195,7 +229,7 @@
 								? "Zur Standardbeleuchtung wechseln"
 								: "Modell besser sichtbar machen"}
 						</button>
-					{:else if project.videoSlug || project.videoSrc}
+					{:else if project.videoSlug || project.videoSrc || project.documentUrl}
 						<button
 							type="button"
 							onclick={() => handleProjectAction(project)}
