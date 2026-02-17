@@ -6,6 +6,8 @@
 	let activeVideo = $state<string | null>(null);
 	let activeVideoSrc = $state<string | null>(null);
 	let activeTitle = $state<string>("");
+	let activeDocumentUrl = $state<string | null>(null);
+	let activeDocumentTitle = $state<string>("");
 	let modelSkylightEnabled = $state(false);
 
 	interface Project {
@@ -121,6 +123,8 @@
 	];
 
 	function openVideo(videoSlug: string | null, videoSrc: string | null, title: string) {
+		activeDocumentUrl = null;
+		activeDocumentTitle = "";
 		activeVideo = videoSlug;
 		activeVideoSrc = videoSrc;
 		activeTitle = title;
@@ -139,7 +143,16 @@
 
 	function openProjectDocument(project: Project) {
 		if (!project.documentUrl) return;
-		window.open(project.documentUrl, "_blank", "noopener,noreferrer");
+		activeVideo = null;
+		activeVideoSrc = null;
+		activeTitle = "";
+		activeDocumentUrl = project.documentUrl;
+		activeDocumentTitle = project.title;
+	}
+
+	function closeDocument() {
+		activeDocumentUrl = null;
+		activeDocumentTitle = "";
 	}
 
 	function handleProjectAction(project: Project) {
@@ -190,6 +203,44 @@
 				autoplay={true}
 				class="border border-zinc-700"
 			/>
+		</div>
+	</div>
+{/if}
+
+<!-- PDF Modal -->
+{#if activeDocumentUrl}
+	<div class="fixed inset-0 z-50 p-4 md:p-8">
+		<button
+			type="button"
+			class="absolute inset-0 appearance-none bg-black/90"
+			onclick={closeDocument}
+			aria-label="Dokument schließen"
+		></button>
+		<div
+			class="relative mx-auto mt-8 w-full max-w-5xl"
+			role="dialog"
+			aria-modal="true"
+			aria-label={activeDocumentTitle}
+		>
+			<div class="mb-4 flex items-center justify-between gap-4">
+				<h3 class="text-xl font-mono text-white md:text-2xl">{activeDocumentTitle}</h3>
+				<button
+					type="button"
+					onclick={closeDocument}
+					class="appearance-none text-3xl text-white transition-opacity hover:opacity-70"
+					aria-label="Schließen"
+				>
+					✕
+				</button>
+			</div>
+			<div class="h-[75vh] w-full overflow-hidden border border-zinc-700 bg-zinc-100">
+				<iframe
+					src={activeDocumentUrl}
+					title={`${activeDocumentTitle} PDF`}
+					class="h-full w-full"
+					loading="lazy"
+				></iframe>
+			</div>
 		</div>
 	</div>
 {/if}
