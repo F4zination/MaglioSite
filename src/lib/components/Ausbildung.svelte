@@ -1,6 +1,9 @@
 <script lang="ts">
 	import ExpandableSection from '$lib/components/ExpandableSection.svelte';
 
+	let activeDocumentUrl = $state<string | null>(null);
+	let activeDocumentTitle = $state<string>("");
+
 	interface Education {
 		number: string;
 		title: string;
@@ -8,6 +11,8 @@
 		tags: string[];
 		date: string;
 		thumbnail: string;
+		documentUrl?: string;
+		ctaLabel?: string;
 	}
 
 	const educations: Education[] = [
@@ -19,6 +24,8 @@
 			tags: ["Abschlussarbeit", "Mediengestaltung"],
 			date: "2024",
 			thumbnail: "/AP.png",
+			documentUrl: "/Dokumentation_AP.pdf",
+			ctaLabel: "Dokumentation ansehen",
 		},
 		{
 			number: "02",
@@ -30,7 +37,55 @@
 			thumbnail: "/Biogemüse RV.png",
 		},
 	];
+
+	function openEducationDocument(education: Education) {
+		if (!education.documentUrl) return;
+		activeDocumentUrl = education.documentUrl;
+		activeDocumentTitle = education.title;
+	}
+
+	function closeDocument() {
+		activeDocumentUrl = null;
+		activeDocumentTitle = "";
+	}
 </script>
+
+{#if activeDocumentUrl}
+	<div class="fixed inset-0 z-50 p-4 md:p-8">
+		<button
+			type="button"
+			class="absolute inset-0 appearance-none bg-black/90"
+			onclick={closeDocument}
+			aria-label="Dokument schließen"
+		></button>
+		<div
+			class="relative mx-auto mt-8 w-full max-w-5xl"
+			role="dialog"
+			aria-modal="true"
+			aria-label={activeDocumentTitle}
+		>
+			<div class="mb-4 flex items-center justify-between gap-4">
+				<h3 class="text-xl font-mono text-white md:text-2xl">{activeDocumentTitle}</h3>
+				<button
+					type="button"
+					onclick={closeDocument}
+					class="appearance-none text-3xl text-white transition-opacity hover:opacity-70"
+					aria-label="Schließen"
+				>
+					✕
+				</button>
+			</div>
+			<div class="h-[75vh] w-full overflow-hidden border border-zinc-700 bg-zinc-100">
+				<iframe
+					src={activeDocumentUrl}
+					title={`${activeDocumentTitle} PDF`}
+					class="h-full w-full"
+					loading="lazy"
+				></iframe>
+			</div>
+		</div>
+	</div>
+{/if}
 
 <ExpandableSection title="Ausbildung" alternateEntries={true}>
 	{#each educations as education}
@@ -43,16 +98,27 @@
 						{education.number} {education.title}
 					</h3>
 				</div>
-				<div class="flex flex-1 flex-col justify-between gap-6 p-6 md:p-8">
+				<div class="flex flex-1 flex-col gap-6 p-6 md:p-8">
 					<div class="space-y-4 font-mono text-xl leading-[1.06] md:text-2xl">
 						{#each education.description.split("\n\n") as paragraph}
 							<p>{paragraph}</p>
 						{/each}
 					</div>
-					<div class="border-t border-zinc-700 pt-4 font-mono text-2xl">
-						<p>{education.tags.join(", ")}</p>
-						<p>{education.date}</p>
-					</div>
+
+						{#if education.documentUrl}
+							<button
+								type="button"
+								onclick={() => openEducationDocument(education)}
+								class="mt-auto appearance-none inline-flex w-fit items-center border border-zinc-900 px-4 py-2 font-mono text-xl transition-colors hover:bg-zinc-900 hover:text-zinc-100"
+							>
+								&gt; {education.ctaLabel ?? "Dokumentation ansehen"}
+							</button>
+						{/if}
+
+						<div class="border-t border-zinc-700 pt-4 font-mono text-2xl">
+							<p>{education.tags.join(", ")}</p>
+							<p>{education.date}</p>
+						</div>
 				</div>
 			</div>
 
