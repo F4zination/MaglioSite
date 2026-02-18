@@ -5,7 +5,7 @@
 </script>
 
 <header
-	class="sticky top-0 z-50 w-full border-b border-zinc-700 bg-black {className}"
+	class="fixed inset-x-0 top-0 z-[60] w-full border-b border-zinc-700 bg-black {className}"
 >
 	<div
 		class="flex w-full items-center justify-between border-x border-zinc-700 px-3 py-4 sm:px-6"
@@ -41,3 +41,5 @@
 		</nav>
 	</div>
 </header>
+
+<div aria-hidden="true" class="h-[58px] sm:h-[60px]"></div>
