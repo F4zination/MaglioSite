@@ -16,7 +16,15 @@ function isWithinRoot(path: string, root: string) {
 }
 
 export const GET: RequestHandler = async ({ params }) => {
-	const relativePath = params.path ?? '';
+	const rawPath = params.path ?? '';
+	let relativePath = rawPath;
+
+	try {
+		relativePath = decodeURIComponent(rawPath);
+	} catch {
+		return new Response('Bad request', { status: 400 });
+	}
+
 	const filePath = resolve(HLS_ROOT, relativePath);
 
 	if (!isWithinRoot(filePath, HLS_ROOT)) {

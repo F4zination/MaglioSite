@@ -48,7 +48,7 @@
 			date: "Juni 2025",
 			thumbnail: "/P4.png",
 			videoSlug: "Recommended_by_your_algorithm",
-			ctaLabel: "bald verfügbar"
+			ctaLabel: "Kurzfilm ansehen",
 		},
 		{
 			number: "03",

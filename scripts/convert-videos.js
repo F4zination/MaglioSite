@@ -1,20 +1,20 @@
 #!/usr/bin/env node
 
 /**
- * Video Conversion Script - MP4 to HLS
+ * Video Conversion Script - Video to HLS
  * 
- * This script converts raw MP4 files to HLS format (.m3u8 + .ts segments)
+ * This script converts raw video files (.mp4/.mov) to HLS format (.m3u8 + .ts segments)
  * Usage: node scripts/convert-videos.js
  * 
  * The script:
- * 1. Scans the videos/raw directory for MP4 files
+ * 1. Scans the videos/raw directory for supported video files
  * 2. Converts each MP4 to HLS format using FFmpeg
  * 3. Outputs the HLS files to videos/hls directory
  * 4. Creates multiple quality variants for adaptive streaming
  */
 
 import { spawn } from 'child_process';
-import { readdir, mkdir, stat } from 'fs/promises';
+import { readdir, mkdir, rm } from 'fs/promises';
 import { join, basename, extname } from 'path';
 import { existsSync } from 'fs';
 import ffmpegPath from 'ffmpeg-static';
@@ -75,26 +75,36 @@ async function checkFFmpeg() {
 }
 
 /**
- * Convert a single MP4 file to HLS format
+ * Convert a single video file to HLS format
  */
 async function convertToHLS(inputPath, outputDir) {
 	const filename = basename(inputPath, extname(inputPath));
-	const outputPath = join(outputDir, filename);
+	const streamId = filename.replace(/\s+/g, '_');
+	const outputPath = join(outputDir, streamId);
 
-	// Create output directory for this video
-	if (!existsSync(outputPath)) {
-		await mkdir(outputPath, { recursive: true });
-	}
+	// Recreate output directory so stale segments from previous conversions are removed.
+	await rm(outputPath, { recursive: true, force: true });
+	await mkdir(outputPath, { recursive: true });
 
-	console.log(`Converting ${filename}...`);
+	console.log(`Converting ${filename} -> ${streamId}...`);
 
 	// FFmpeg arguments for HLS conversion
-	// Creates adaptive bitrate streaming with multiple quality levels
+	// Force browser-compatible H.264 output.
 	const args = [
 		'-i', inputPath,
+		'-map', '0:v:0',
+		'-map', '0:a:0?',
 		'-c:v', 'libx264', // Video codec
+		'-profile:v', 'high',
+		'-level:v', '4.1',
+		'-pix_fmt', 'yuv420p',
+		'-vf', 'scale=trunc(iw/2)*2:trunc(ih/2)*2,format=yuv420p',
+		'-preset', 'medium',
+		'-crf', '20',
 		'-c:a', 'aac', // Audio codec
-		'-strict', '-2',
+		'-b:a', '192k',
+		'-ac', '2',
+		'-ar', '48000',
 		'-hls_time', HLS_TIME.toString(),
 		'-hls_playlist_type', HLS_PLAYLIST_TYPE,
 		'-hls_segment_filename', join(outputPath, 'segment_%03d.ts'),
@@ -104,7 +114,7 @@ async function convertToHLS(inputPath, outputDir) {
 
 	try {
 		await execFFmpeg(args);
-		console.log(`✓ Successfully converted ${filename}`);
+			console.log(`✓ Successfully converted ${filename} (${streamId})`);
 		return true;
 	} catch (error) {
 		console.error(`✗ Failed to convert ${filename}:`, error.message);
@@ -116,7 +126,7 @@ async function convertToHLS(inputPath, outputDir) {
  * Main conversion process
  */
 async function main() {
-	console.log('🎬 Video Conversion Script - MP4 to HLS\n');
+	console.log('🎬 Video Conversion Script - Video to HLS\n');
 
 	// Check if FFmpeg is installed
 	console.log('Checking for FFmpeg...');
@@ -132,7 +142,7 @@ async function main() {
 	// Check if raw video directory exists
 	if (!existsSync(RAW_VIDEO_DIR)) {
 		console.error(`✗ Raw video directory not found: ${RAW_VIDEO_DIR}`);
-		console.error('Please create the directory and add your MP4 files');
+		console.error('Please create the directory and add your video files');
 		process.exit(1);
 	}
 
@@ -143,25 +153,26 @@ async function main() {
 
 	// Read all files in raw directory
 	const files = await readdir(RAW_VIDEO_DIR);
-	const mp4Files = files.filter(file =>
-		extname(file).toLowerCase() === '.mp4'
+	const supportedExtensions = new Set(['.mp4', '.mov']);
+	const videoFiles = files.filter(file =>
+		supportedExtensions.has(extname(file).toLowerCase())
 	);
 
-	if (mp4Files.length === 0) {
-		console.log(`No MP4 files found in ${RAW_VIDEO_DIR}`);
-		console.log('Add some MP4 files and run the script again');
+	if (videoFiles.length === 0) {
+		console.log(`No supported video files found in ${RAW_VIDEO_DIR}`);
+		console.log('Supported formats: .mp4, .mov');
 		return;
 	}
 
-	console.log(`Found ${mp4Files.length} MP4 file(s) to convert:\n`);
-	mp4Files.forEach(file => console.log(`  - ${file}`));
+	console.log(`Found ${videoFiles.length} video file(s) to convert:\n`);
+	videoFiles.forEach(file => console.log(`  - ${file}`));
 	console.log('');
 
 	// Convert each file
 	let successful = 0;
 	let failed = 0;
 
-	for (const file of mp4Files) {
+	for (const file of videoFiles) {
 		const inputPath = join(RAW_VIDEO_DIR, file);
 		const success = await convertToHLS(inputPath, HLS_OUTPUT_DIR);
 
