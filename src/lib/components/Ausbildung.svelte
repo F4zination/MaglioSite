@@ -105,11 +105,12 @@
 						{/each}
 					</div>
 
+					<div class="mt-auto flex flex-col gap-6">
 						{#if education.documentUrl}
 							<button
 								type="button"
 								onclick={() => openEducationDocument(education)}
-								class="mt-auto appearance-none inline-flex w-fit items-center border border-zinc-900 px-4 py-2 font-mono text-xl transition-colors hover:bg-zinc-900 hover:text-zinc-100"
+								class="appearance-none inline-flex w-fit items-center border border-zinc-900 px-4 py-2 font-mono text-xl transition-colors hover:bg-zinc-900 hover:text-zinc-100"
 							>
 								&gt; {education.ctaLabel ?? "Dokumentation ansehen"}
 							</button>
@@ -119,6 +120,7 @@
 							<p>{education.tags.join(", ")}</p>
 							<p>{education.date}</p>
 						</div>
+					</div>
 				</div>
 			</div>
 

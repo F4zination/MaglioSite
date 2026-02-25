@@ -66,7 +66,7 @@
 			number: "04",
 			title: "Pocket Nature",
 			description:
-				"Pocket Nature ist eine spielerische App, die Kinder wieder nach draußen bringt, indem sie echte Pflanzen, Tiere und Pilze entdecken, sammeln und zu einem lebendigen Ökosystem verbinden.\nSo wird Naturwissen nebenbei vermittelt und aus digitaler Neugier echte Naturverbundenheit.",
+				"Pocket Nature ist eine spielerische Lern-App, die Kinder und Jugendliche wieder aktiv mit der realen Natur verbindet. Statt Wissen nur digital zu vermitteln, motiviert sie dazu, nach draußen zu gehen, Pflanzen, Tiere und Pilze zu entdecken und per Smartphone zu erkennen. Jede gefundene Art wird als Sammelkarte freigeschaltet und vermittelt anschaulich Wissen über ihre Rolle im Ökosystem\nIm Mittelpunkt steht eine persönliche Insel, auf der die gesammelten Arten platziert werden. Sie beeinflussen sich gegenseitig, wachsen gemeinsam und bilden ein lebendiges Ökosystem. Vielfalt wird belohnt, Monokulturen schwächen die Insel - ökologische Zusammenhänge werden so intuitiv verständlich. Pocket Nature ist damit mehr als ein Spiel: Es macht Natur wieder erlebbar, verständlich und emotional wertvoll.",
 			tags: ["UX Design", "Konzeption"],
 			semester: "5. Semester",
 			date: "Dezember 2025",
@@ -266,34 +266,36 @@
 						{/each}
 					</div>
 
-					{#if project.modelPath}
-						<button
-							type="button"
-							onclick={toggleModelSkylight}
-							aria-pressed={modelSkylightEnabled}
-							aria-label={modelSkylightEnabled
-								? "Licht aus"
-								: "Licht ein"}
-							class="mt-auto appearance-none inline-flex w-fit items-center border border-zinc-900 px-4 py-2 font-mono text-xl transition-colors hover:bg-zinc-900 hover:text-zinc-100"
-						>
-							&gt; {modelSkylightEnabled
-								? "Licht aus"
-								: "Licht ein"}
-						</button>
-					{:else if project.videoSlug || project.videoSrc || project.documentUrl}
-						<button
-							type="button"
-							onclick={() => handleProjectAction(project)}
-							class="mt-auto appearance-none inline-flex w-fit items-center border border-zinc-900 px-4 py-2 font-mono text-xl transition-colors hover:bg-zinc-900 hover:text-zinc-100"
-						>
-							&gt; {project.ctaLabel ?? "Casefilm anschauen"}
-						</button>
-					{/if}
+					<div class="mt-auto flex flex-col gap-6">
+						{#if project.modelPath}
+							<button
+								type="button"
+								onclick={toggleModelSkylight}
+								aria-pressed={modelSkylightEnabled}
+								aria-label={modelSkylightEnabled
+									? "Licht aus"
+									: "Licht ein"}
+								class="appearance-none inline-flex w-fit items-center border border-zinc-900 px-4 py-2 font-mono text-xl transition-colors hover:bg-zinc-900 hover:text-zinc-100"
+							>
+								&gt; {modelSkylightEnabled
+									? "Licht aus"
+									: "Licht ein"}
+							</button>
+						{:else if project.videoSlug || project.videoSrc || project.documentUrl}
+							<button
+								type="button"
+								onclick={() => handleProjectAction(project)}
+								class="appearance-none inline-flex w-fit items-center border border-zinc-900 px-4 py-2 font-mono text-xl transition-colors hover:bg-zinc-900 hover:text-zinc-100"
+							>
+								&gt; {project.ctaLabel ?? "Casefilm anschauen"}
+							</button>
+						{/if}
 
-					<div class="border-t border-zinc-700 pt-4 font-mono text-xl">
-						<p>{project.tags.join(", ")}</p>
-						<p>{project.semester}</p>
-						<p>{project.date}</p>
+						<div class="border-t border-zinc-700 pt-4 font-mono text-xl">
+							<p>{project.tags.join(", ")}</p>
+							<p>{project.semester}</p>
+							<p>{project.date}</p>
+						</div>
 					</div>
 				</div>
 			</div>
