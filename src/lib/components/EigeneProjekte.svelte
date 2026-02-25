@@ -15,18 +15,18 @@
 			number: "01",
 			title: "Expense Tracker",
 			description:
-				"Eine persönliche Finanz-App zur Verfolgung von Ausgaben und Einnahmen. Die App ermöglicht es Nutzern, ihre Finanzen übersichtlich zu verwalten und Sparziele zu setzen.",
-			tags: ["App Design", "UX Design"],
-			date: "2025",
+				"Im hektischen Alltag verliert man schnell den Überblick über Einnahmen, Ausgaben und finanzielle Prioritäten. Aus diesem Grund habe ich gemeinsam mit einem App-Entwickler eine moderne, übersichtliche und intuitiv bedienbare Finanz-App konzipiert und gestaltet, die Nutzerinnen und Nutzern eine klare Struktur für ihre persönlichen Finanzen bietet.\nZiel des Projekts war es, komplexe Finanzdaten visuell verständlich aufzubereiten und eine einfache, schnelle Interaktion zu ermöglichen. Die App arbeitet mit dynamischen Graphen, anschaulichen Diagrammen und individuell anpassbaren Kategorien, um Einnahmen und Ausgaben transparent darzustellen. Durch eine visuelle Aufbereitung in Form von Kreisdiagrammen, Liniendiagrammen und kategoriebasierten Übersichten wird das monatliche Budget auf einen Blick nachvollziehbar.",
+			tags: ["UX Design"],
+			date: "August 2024",
 			thumbnail: "/ET.png",
 		},
 		{
 			number: "02",
 			title: "DUO",
 			description:
-				"Ein kreatives Projekt, das zwei komplementäre Designkonzepte verbindet und eine harmonische visuelle Sprache entwickelt.",
-			tags: ["Visual Design", "Konzeption"],
-			date: "2025",
+				"Im Rahmen einer Studienarbeit an der DHBW Friedrichshafen wurde ein digitales Kartenspiel für die Nutzung auf einem Tablet entwickelt. Für das dafür benötigte Kartendeck habe ich das visuelle Konzept und die Gestaltung übernommen.\n\nDas Spiel orientiert sich am bekannten Prinzip von Uno, wurde jedoch für den digitalen Einsatz neu interpretiert. Ziel war ein modernes, freies und zugleich funktionales Design. Klare Farbkontraste, reduzierte Gestaltungselemente und großzügige Zahlen- und Symbolflächen sorgen für eine hohe Lesbarkeit auf dem Display.\n\nDie organisch wirkenden Farbflächen verleihen den Karten eine dynamische, zeitgemäße Anmutung und heben sie bewusst von klassischen, analogen Kartendesigns ab. So entsteht ein eigenständiger visueller Auftritt, der die digitale Spielumgebung unterstützt und gleichzeitig den vertrauten Spielcharakter bewahrt.",
+			tags: ["Game Design"],
+			date: "September 2024",
 			thumbnail: "/Duo.png",
 		},
 	];

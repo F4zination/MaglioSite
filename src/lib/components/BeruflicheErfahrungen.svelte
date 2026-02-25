@@ -15,27 +15,27 @@
 			number: "01",
 			title: "Vektorgrafiken Duschkabine",
 			description:
-				"Erstellung von detaillierten Vektorgrafiken für Duschkabinen-Produkte. Die Grafiken wurden für Produktkataloge und technische Dokumentationen verwendet.",
-			tags: ["Vektorgrafik", "Illustration"],
-			date: "2024",
+				"Kunde: Duka\n\nFür die Erstellung der Montageanleitungen der Duschkabinen von Duka erhält unser Team präzise Informationen zur Montage direkt vom Kunden. Als Grafikerin fertige ich auf Basis eines 3D-Modells und unter strikter Beachtung des verbindlichen Grafikleitfadens die entsprechenden Illustrationen an.\n\nMithilfe von SolidWorks werden die 3D-Daten erstellt, die ich anschließend in Adobe Illustrator für die weitere Aufbereitung nutze.\n\nDie finale Gestaltung und Layoutentwicklung erfolgt in Adobe InDesign,um eine klare und ansprechende Darstellung sicherzustellen.",
+			tags: ["Technische Grafiken"],
+			date: "Tanner GmbH Lindau",
 			thumbnail: "/Duka.png",
 		},
 		{
 			number: "02",
 			title: "Vektorgrafiken Wohnwagen",
 			description:
-				"Entwicklung von präzisen Vektorgrafiken für Wohnwagen und Caravan-Produkte. Die Illustrationen dienten der visuellen Kommunikation im Vertrieb.",
-			tags: ["Vektorgrafik", "Technische Illustration"],
-			date: "2024",
+				"Kunde: Dethleffs\n\nFür die Erstellung der Bedienungsanleitungen bei Dethleffs habe ich die Grafiken auf Basis von Originalfotos angefertigt. Dabei nutze ich Adobe Illustrator, um die Vorlagen detailgetreu nachzuzeichnen und gleichzeitig die wesentlichen Elemente hervorzuheben, damit sie leicht verständlich bleiben. Mein Anspruch ist es, klare und übersichtliche Illustrationen zu schaffen, die den Anwenderinnen und Anwendern einen schnellen und intuitiven Zugang zu den Informationen ermöglichen.",
+			tags: ["Technische Grafiken"],
+			date: "Tanner GmbH Lindau",
 			thumbnail: "/Detthlefs.png",
 		},
 		{
 			number: "03",
 			title: "Marketingunterstützung Baumarkt",
 			description:
-				"Unterstützung bei der Erstellung von Marketingmaterialien für einen Baumarkt. Dazu gehörten Flyer, Poster und digitale Werbemittel.",
-			tags: ["Marketing", "Grafikdesign"],
-			date: "2023",
+				"Kunde: Building Material Suisse\n\nFür die Erstellung von Broschüren,Katalogen, kurze Werbevideos und Aktionsflyern für den Schweizer Baumarkt BMS setze ich die Dokumente konsequent im Corporate Design des Unternehmens um und halte die Daten regelmäßig auf dem neuesten Stand. Die Gestaltung erfolgt hauptsächlich mit Adobe InDesign und wird aktuell mithilfe von EasyCatalog automatisiert, in das ich mich derzeit einarbeite. Zusätzlich werden Icons in Illustrator erstellt oder Bilder in Photoshop bearbeitet, um ein einheitliches und ansprechendes Gesamtbild zu gewährleisten.",
+			tags: ["Technisches Marketing"],
+			date: "Tanner GmbH Lindau",
 			thumbnail: "/BMS.png",
 		},
 	];

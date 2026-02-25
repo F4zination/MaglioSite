@@ -67,9 +67,9 @@
 			title: "Pocket Nature",
 			description:
 				"Pocket Nature ist eine spielerische App, die Kinder wieder nach draußen bringt, indem sie echte Pflanzen, Tiere und Pilze entdecken, sammeln und zu einem lebendigen Ökosystem verbinden.\nSo wird Naturwissen nebenbei vermittelt und aus digitaler Neugier echte Naturverbundenheit.",
-			tags: ["App Design", "UX Research"],
-			semester: "4. Semester",
-			date: "März 2025",
+			tags: ["UX Design", "Konzeption"],
+			semester: "5. Semester",
+			date: "Dezember 2025",
 			thumbnail: "/PocketNature.png",
 			videoSlug: "Pocket_Nature",
 			ctaLabel: "Casefilm anschauen",

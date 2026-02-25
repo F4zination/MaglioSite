@@ -20,9 +20,9 @@
 			number: "01",
 			title: "Abschlussprüfung",
 			description:
-				"Die praktische Abschlussprüfung im Bereich Mediengestaltung. Das Projekt umfasste die Konzeption und Umsetzung eines umfangreichen Designprojekts.",
-			tags: ["Abschlussarbeit", "Mediengestaltung"],
-			date: "2024",
+				"Für die Agrargenossenschaft Finow sollte ich einen Flyer mit Kreuzbruchfalz entwickeln, um auf die neu eingeführten Produkte aufmerksam zu machen. Das fiktive Unternehmen legte großen Wert auf ein ressourcenschonendes Werbemittel. Das Ergebnis ist ein Flyer in Form eines Briefumschlags, der alle relevanten Informationen übersichtlich und klar präsentiert. Während Format, Logo, Text und Bilder vorgegeben waren, konnte ich das Farbkonzept, die Typografie, das Raster sowie Grafikelemente und Bildbearbeitungen eigenständig gestalten.",
+			tags: ["Abschlussprüfung Mediengestalter/in", "Gestaltung eines Flyers"],
+			date: "Dezember 2022",
 			thumbnail: "/AP.png",
 			documentUrl: "/Dokumentation_AP.pdf",
 			ctaLabel: "Dokumentation ansehen",
@@ -31,9 +31,9 @@
 			number: "02",
 			title: "Biogemüse Ravensburg",
 			description:
-				"Ein Branding-Projekt für einen regionalen Biogemüse-Anbieter. Das Projekt beinhaltete Logo-Design, Corporate Identity und Verpackungsgestaltung.",
+				"Für dieses Projekt erhielten wir lediglich den Namen und das Tätigkeitsfeld eines fiktiven Unternehmens. Auf dieser Grundlage habe ich ein durchgängiges Corporate Design entwickelt, inklusive Logo, Visitenkarten (in klassischer und in extravaganter Ausführung), Stoffbeuteln, Briefpapier und einer Samentüte. Die Stoffbeutel haben wir abschließend mithilfe des Siebdruckverfahrens produziert.",
 			tags: ["Branding", "Corporate Design"],
-			date: "2023",
+			date: "Dezember 2022",
 			thumbnail: "/Biogemüse RV.png",
 		},
 	];
