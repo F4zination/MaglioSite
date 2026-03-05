@@ -12,6 +12,10 @@
 			label: string;
 			url: string;
 		}[];
+		inlineImage?: {
+			src: string;
+			alt: string;
+		};
 	}
 
 	const experiences: Experience[] = [
@@ -38,6 +42,12 @@
 			tags: ["Technische Grafiken"],
 			date: "Tanner GmbH Lindau",
 			thumbnail: "/Detthlefs.png",
+			customerLinks: [
+				{
+					label: "Bedienungsanleitung ansehen",
+					url: "https://www.dethleffs.de/dethleffs/01_DE/02_pdfs/06_bedienungsanleitungn/2025/x1513.08.230_motorcaravan_2025_de-web.pdf"
+				}
+			],
 		},
 		{
 			number: "03",
@@ -78,6 +88,16 @@
 							<p>{paragraph}</p>
 						{/each}
 					</div>
+
+					{#if experience.inlineImage}
+						<div class="overflow-hidden">
+							<img
+								src={experience.inlineImage.src}
+								alt={experience.inlineImage.alt}
+								class="block w-full object-cover"
+							/>
+						</div>
+					{/if}
 
 					<div class="mt-auto flex flex-col gap-6">
 						{#if experience.customerLinks?.length}
