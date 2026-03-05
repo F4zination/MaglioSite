@@ -8,6 +8,10 @@
 		tags: string[];
 		date: string;
 		thumbnail: string;
+		customerLinks?: {
+			label: string;
+			url: string;
+		}[];
 	}
 
 	const experiences: Experience[] = [
@@ -19,6 +23,12 @@
 			tags: ["Technische Grafiken"],
 			date: "Tanner GmbH Lindau",
 			thumbnail: "/Duka.png",
+			customerLinks: [
+				{
+					label: "Montageanleitung ansehen",
+					url: "https://www.duka.it/media/MA_C6_FPN.pdf",
+				},
+			],
 		},
 		{
 			number: "02",
@@ -37,6 +47,16 @@
 			tags: ["Technisches Marketing"],
 			date: "Tanner GmbH Lindau",
 			thumbnail: "/BMS.png",
+			customerLinks: [
+				{
+					label: "Kataloge ansehen",
+					url: "https://www.baubedarf-richner-miauton.ch/de/kataloge/",
+				},
+				{
+					label: "Aktionsbroschüren ansehen",
+					url: "https://online.flippingbook.com/view/493319494/",
+				},
+			],
 		},
 	];
 </script>
@@ -52,15 +72,33 @@
 						{experience.number} {experience.title}
 					</h3>
 				</div>
-				<div class="flex flex-1 flex-col justify-between gap-6 p-6 md:p-8">
+				<div class="flex flex-1 flex-col gap-6 p-6 md:p-8">
 					<div class="space-y-4 font-mono text-xl leading-[1.06] md:text-2xl">
 						{#each experience.description.split("\n\n") as paragraph}
 							<p>{paragraph}</p>
 						{/each}
 					</div>
-					<div class="border-t border-zinc-700 pt-4 font-mono text-2xl">
-						<p>{experience.tags.join(", ")}</p>
-						<p>{experience.date}</p>
+
+					<div class="mt-auto flex flex-col gap-6">
+						{#if experience.customerLinks?.length}
+							<div class="flex flex-col gap-3">
+								{#each experience.customerLinks as link}
+									<a
+										href={link.url}
+										target="_blank"
+										rel="noreferrer"
+										class="inline-flex w-fit items-center border border-zinc-900 px-4 py-2 font-mono text-xl transition-colors hover:bg-zinc-900 hover:text-zinc-100"
+									>
+										&gt; {link.label}
+									</a>
+								{/each}
+							</div>
+						{/if}
+
+						<div class="border-t border-zinc-700 pt-4 font-mono text-2xl">
+							<p>{experience.tags.join(", ")}</p>
+							<p>{experience.date}</p>
+						</div>
 					</div>
 				</div>
 			</div>
