@@ -79,6 +79,10 @@
 		border-bottom: 1px solid #000;
 	}
 
+	:global(.entry-text .space-y-4) {
+		max-width: 75%;
+	}
+
 	@media (min-width: 768px) {
 		:global(.entry-media) {
 			border-bottom: 0;

@@ -33,7 +33,7 @@
 			number: "03",
 			title: "Marketingunterstützung Baumarkt",
 			description:
-				"Kunde: Building Material Suisse\n\nFür die Erstellung von Broschüren,Katalogen, kurze Werbevideos und Aktionsflyern für den Schweizer Baumarkt BMS setze ich die Dokumente konsequent im Corporate Design des Unternehmens um und halte die Daten regelmäßig auf dem neuesten Stand. Die Gestaltung erfolgt hauptsächlich mit Adobe InDesign und wird aktuell mithilfe von EasyCatalog automatisiert, in das ich mich derzeit einarbeite. Zusätzlich werden Icons in Illustrator erstellt oder Bilder in Photoshop bearbeitet, um ein einheitliches und ansprechendes Gesamtbild zu gewährleisten.",
+				"Kunde: Building Material Suisse\n\nFür die Erstellung von Broschüren, Katalogen, kurze Werbevideos und Aktionsflyern für den Schweizer Baumarkt BMS setze ich die Dokumente konsequent im Corporate Design des Unternehmens um und halte die Daten regelmäßig auf dem neuesten Stand. Die Gestaltung erfolgt hauptsächlich mit Adobe InDesign und wird aktuell mithilfe von EasyCatalog automatisiert, in das ich mich derzeit einarbeite. Zusätzlich werden Icons in Illustrator erstellt oder Bilder in Photoshop bearbeitet, um ein einheitliches und ansprechendes Gesamtbild zu gewährleisten.",
 			tags: ["Technisches Marketing"],
 			date: "Tanner GmbH Lindau",
 			thumbnail: "/BMS.png",
