@@ -41,11 +41,6 @@
 				<p
 					class="font-mono text-xl  decoration-zinc-500 "
 				>
-					etwas stur
-				</p>
-				<p
-					class="font-mono text-xl  decoration-zinc-500 "
-				>
 					ehrgeizig
 				</p>
 				<p

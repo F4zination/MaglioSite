@@ -28,15 +28,15 @@
 	const projects: Project[] = [
 		{
 			number: "01",
-			title: "BeeHelpful",
+			title: "Pocket Nature",
 			description:
-				"Im Rahmen dieses Projekts sollten Anwendungen zum Thema Nachbarschaftshilfe entwickelt werden.\n\nDie App BeeHelpful unterstützt insbesondere ältere Menschen dabei, unkompliziert mit jüngeren Personen in Kontakt zu treten. Darüber hinaus ermöglicht sie die Teilnahme an gemeinsamen Veranstaltungen und bietet einen integrierten Kalender, der alle wichtigen Termine übersichtlich darstellt.",
+				"Pocket Nature ist eine spielerische Lern-App, die Kinder und Jugendliche wieder aktiv mit der realen Natur verbindet. Statt Wissen nur digital zu vermitteln, motiviert sie dazu, nach draußen zu gehen, Pflanzen, Tiere und Pilze zu entdecken und per Smartphone zu erkennen. Jede gefundene Art wird als Sammelkarte freigeschaltet und vermittelt anschaulich Wissen über ihre Rolle im Ökosystem\nIm Mittelpunkt steht eine persönliche Insel, auf der die gesammelten Arten platziert werden. Sie beeinflussen sich gegenseitig, wachsen gemeinsam und bilden ein lebendiges Ökosystem. Vielfalt wird belohnt, Monokulturen schwächen die Insel - ökologische Zusammenhänge werden so intuitiv verständlich. Pocket Nature ist damit mehr als ein Spiel: Es macht Natur wieder erlebbar, verständlich und emotional wertvoll.",
 			tags: ["UX Design", "Konzeption"],
-			semester: "3. Semester",
-			date: "Dezember 2024",
-			thumbnail: "/Beehelpful.png",
-			videoSlug: "BeeHelpful",
-			ctaLabel: "Casefilm ansehen",
+			semester: "5. Semester",
+			date: "Dezember 2025",
+			thumbnail: "/PocketNature.png",
+			videoSlug: "Pocket_Nature",
+			ctaLabel: "Casefilm anschauen",
 		},
 		{
 			number: "02",
@@ -52,6 +52,29 @@
 		},
 		{
 			number: "03",
+			title: "BeeHelpful",
+			description:
+				"Im Rahmen dieses Projekts sollten Anwendungen zum Thema Nachbarschaftshilfe entwickelt werden.\n\nDie App BeeHelpful unterstützt insbesondere ältere Menschen dabei, unkompliziert mit jüngeren Personen in Kontakt zu treten. Darüber hinaus ermöglicht sie die Teilnahme an gemeinsamen Veranstaltungen und bietet einen integrierten Kalender, der alle wichtigen Termine übersichtlich darstellt.",
+			tags: ["UX Design", "Konzeption"],
+			semester: "3. Semester",
+			date: "Dezember 2024",
+			thumbnail: "/Beehelpful.png",
+			videoSlug: "BeeHelpful",
+			ctaLabel: "Casefilm ansehen",
+		},
+		{
+			number: "04",
+			title: "Modelling",
+			description:
+				"Dieses Projekt soll untersuchen, wie Algorithmen menschliches Verhalten verändern. Mithilfe des selbst erstellten 3D-Kopfmodells soll in einem kurzen Video veranschaulicht werden, wie Menschen durch Datensysteme transformiert werden, die ihr Handeln analysieren und vorhersagen.\n\nDieses Video ist allerdings noch nicht erstellt, aber hier ist ein Einblick in das bereits erstellte Modell.",
+			tags: ["Blender"],
+			semester: "5. Semester",
+			date: "Dezember 2025",
+			modelPath: "/sculpture.obj",
+			ctaLabel: "3D Modell ansehen",
+		},
+		{
+			number: "05",
 			title: "Filmintro",
 			description:
 				"Die Aufgabe bestand darin, ein Intro mithilfe von Blender zu konzipieren, zu bauen und zu animieren.\n\nIn dem Film geht es um einen Serienmörder, der seine Opfer stets auf dieselbe Weise tötet. Er folgt dabei einem perfiden, immer gleichen Muster: Die Morde geschehen scheinbar beiläufig - „en passant“, wie im Schach, also „beim Vorbeigehen“. Genau dieser Schachzug wurde deshalb als Symbol für das Intro gewählt, da er die Eleganz und Unauffälligkeit seiner Vorgehensweise widerspiegelt.\n\nDie Farbgebung erinnert an eine düstere Abenddämmerung - dunkel und unheimlich. Nebel und punktuelle Lichtquellen verstärken die gruselige, spannungsgeladene Atmosphäre des Films.",
@@ -63,43 +86,7 @@
 			ctaLabel: "Intro ansehen",
 		},
 		{
-			number: "04",
-			title: "Pocket Nature",
-			description:
-				"Pocket Nature ist eine spielerische Lern-App, die Kinder und Jugendliche wieder aktiv mit der realen Natur verbindet. Statt Wissen nur digital zu vermitteln, motiviert sie dazu, nach draußen zu gehen, Pflanzen, Tiere und Pilze zu entdecken und per Smartphone zu erkennen. Jede gefundene Art wird als Sammelkarte freigeschaltet und vermittelt anschaulich Wissen über ihre Rolle im Ökosystem\nIm Mittelpunkt steht eine persönliche Insel, auf der die gesammelten Arten platziert werden. Sie beeinflussen sich gegenseitig, wachsen gemeinsam und bilden ein lebendiges Ökosystem. Vielfalt wird belohnt, Monokulturen schwächen die Insel - ökologische Zusammenhänge werden so intuitiv verständlich. Pocket Nature ist damit mehr als ein Spiel: Es macht Natur wieder erlebbar, verständlich und emotional wertvoll.",
-			tags: ["UX Design", "Konzeption"],
-			semester: "5. Semester",
-			date: "Dezember 2025",
-			thumbnail: "/PocketNature.png",
-			videoSlug: "Pocket_Nature",
-			ctaLabel: "Casefilm anschauen",
-		},
-
-		{
-			number: "05",
-			title: "Logo Animation",
-			description:
-				"Das Logo visualisiert den Verlauf eines typischen Semesters: Anfangs geordnet und ruhig, steigern sich mit der Zeit Arbeitsaufwand und Druck, bis das Logo anwächst und schließlich platzt – als Sinnbild für die Überforderung vieler Studierender. Trotz dieser Entwicklung entsteht am Ende ein individuelles Projekt.\nDie Farbgebung orientiert sich am menschlichen Gehirn und verweist auf Kreativität, Denken und Entwicklung. Ein Retrofilter verleiht der Animation eine passende Ästhetik und knüpft an den Fokus auf das Medium Film im Semester an. Klanglich begleitet ein Aufblasgeräusch den Prozess und macht die visuelle Entwicklung unmittelbar nachvollziehbar.",
-			tags: ["Stop Motion"],
-			semester: "4. Semester",
-			date: "Juni 2025",
-			thumbnail: "/MdRV.png",
-			videoSrc: "/MdRV%20Logo.mov",
-			ctaLabel: "Animation ansehen",
-		},
-		{
 			number: "06",
-			title: "Modelling",
-			description:
-				"Dieses Projekt soll untersuchen, wie Algorithmen menschliches Verhalten verändern. Mithilfe des selbst erstellten 3D-Kopfmodells soll in einem kurzen Video veranschaulicht werden, wie Menschen durch Datensysteme transformiert werden, die ihr Handeln analysieren und vorhersagen.\n\nDieses Video ist allerdings noch nicht erstellt, aber hier ist ein Einblick in das bereits erstellte Modell.",
-			tags: ["Blender"],
-			semester: "5. Semester",
-			date: "Dezember 2025",
-			modelPath: "/sculpture.obj",
-			ctaLabel: "3D Modell ansehen",
-		},
-		{
-			number: "07",
 			title: "Branding Museum Langenargen",
 			description:
 				"Im 5. Semester bot sich uns eine einmalige Gelegenheit: die Entwicklung eines neuen Brandings für ein reales Museum in Langenargen.\n\nZiel unseres Gestaltungskonzepts war es, die starke regionale Verankerung des Museums hervorzuheben. Die unmittelbare Lage am Bodensee diente dabei als zentrale Inspirationsquelle und führte zur Idee, das Museum künftig „Museeum“ zu nennen.\n\nDarüber hinaus standen für uns Werte wie Verbindung und Vertrauen im Fokus - Qualitäten, die ein Museum als kultureller Ort vermitteln sollte. Dieses Leitmotiv des Verbindens, des Brückenbauens spiegelt sich konsequent im visuellen Erscheinungsbild wider. Grafisch wird es durch miteinander verbundene Kreisformen aufgegriffen, die sowohl Nähe als auch Austausch symbolisieren und dem Branding eine klare, einprägsame Identität verleihen.",
@@ -111,7 +98,7 @@
 			ctaLabel: "Brandbook ansehen",
 		},
 		{
-			number: "08",
+			number: "07",
 			title: "Das ExperTier",
 			description:
 				"Viele Menschen haben nur ein sehr begrenztes Wissen über die Tierwelt. Sie können viele Arten weder richtig benennen noch grundlegende Fakten einschätzen. Dieses fehlende Basiswissen führt dazu, dass Biodiversität abstrakt wirkt und ihr Wert im Alltag kaum wahrgenommen wird.\n\nHier setzt das Projekt an: Ein Kartenspiel, das Spieler über Schätzen und Vergleichen intuitiv an grundlegende Tierfakten heranführt. Durch den spielerischen Zugang entsteht ein natürlicher Lerneffekt, ohne dass es sich wie klassische Wissensvermittlung anfühlt. Zielgruppe sind sowohl Kinder als auch Erwachsene, die Interesse an Tieren haben.",
@@ -120,6 +107,19 @@
 			date: "Dezember 2025",
 			thumbnail: "/Das_Expertier.png",
 		},
+		{
+			number: "08",
+			title: "Logo Animation",
+			description:
+				"Das Logo visualisiert den Verlauf eines typischen Semesters: Anfangs geordnet und ruhig, steigern sich mit der Zeit Arbeitsaufwand und Druck, bis das Logo anwächst und schließlich platzt – als Sinnbild für die Überforderung vieler Studierender. Trotz dieser Entwicklung entsteht am Ende ein individuelles Projekt.\nDie Farbgebung orientiert sich am menschlichen Gehirn und verweist auf Kreativität, Denken und Entwicklung. Ein Retrofilter verleiht der Animation eine passende Ästhetik und knüpft an den Fokus auf das Medium Film im Semester an. Klanglich begleitet ein Aufblasgeräusch den Prozess und macht die visuelle Entwicklung unmittelbar nachvollziehbar.",
+			tags: ["Stop Motion"],
+			semester: "4. Semester",
+			date: "Juni 2025",
+			thumbnail: "/MdRV.png",
+			videoSrc: "/MdRV%20Logo.mov",
+			ctaLabel: "Animation ansehen",
+		},
+
 	];
 
 	function openVideo(videoSlug: string | null, videoSrc: string | null, title: string) {
